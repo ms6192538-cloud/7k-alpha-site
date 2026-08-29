@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7K ALPHA • Central</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#080808;color:#eee;font:14px Arial,sans-serif}header{background:#101010;border-bottom:1px solid #292929;padding:18px;position:sticky;top:0;z-index:5}.logo{font-size:25px;font-weight:900;letter-spacing:2px}.logo b{color:#e3262e}.sub{color:#888;font-size:11px;margin-top:4px}
+nav{display:flex;gap:7px;overflow:auto;background:#0d0d0d;padding:10px;border-bottom:1px solid #222}nav button{background:#181818;color:#bbb;border:1px solid #292929;padding:10px 13px;border-radius:8px;white-space:nowrap}nav button.active{background:#e3262e;color:#fff}
+main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{display:block}.hero,.panel,.card{background:#121212;border:1px solid #292929;border-radius:15px}.hero{padding:25px;background:radial-gradient(circle at 90% 0,#451115,#121212 48%)}h1{font-size:32px;margin:0 0 8px}.hero p,.muted{color:#999}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.card{padding:15px}.num{font-size:25px;font-weight:800}.small{font-size:11px;color:#888}.panel{padding:16px;margin-top:14px}h2{margin-top:0;font-size:18px}
+.notice{background:#191919;border-left:3px solid #e3262e;padding:12px;border-radius:7px;margin:8px 0}.btn{display:inline-block;background:#e3262e;color:white;border:0;border-radius:8px;padding:11px 14px;font-weight:bold;text-decoration:none;cursor:pointer}.btn.gray{background:#292929}.btn.red{background:#8f151a}.input,textarea,select{width:100%;padding:11px;background:#0b0b0b;color:#eee;border:1px solid #333;border-radius:8px;margin:6px 0 12px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}table{width:100%;border-collapse:collapse}th,td{padding:11px 7px;text-align:left;border-bottom:1px solid #272727}th{color:#888;font-size:12px}.tag{background:#252525;padding:5px 8px;border-radius:6px;font-size:11px}.success{color:#62e38b}.danger{color:#ff7070}.toast{position:fixed;right:15px;bottom:15px;background:#191919;border:1px solid #444;padding:14px;border-radius:10px;display:none;z-index:20}.private{border:1px solid #4a1619;background:#160b0c;padding:12px;border-radius:9px}.adminOnly{display:none}.rolebox{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.rolebox .card{text-align:center}.rolebox b{display:block;font-size:16px;margin:7px 0}.candidate{padding:13px;border:1px solid #292929;background:#151515;border-radius:9px;margin:8px 0}.pen{font-size:18px}
+@media(max-width:700px){.cards,.rolebox{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}th:nth-child(3),td:nth-child(3){display:none}}
+</style>
+</head>
+<body>
+<header><div class="logo">7K <b>ALPHA</b></div><div class="sub">CENTRAL DA GUILDA • DISCIPLINA • COMPROMISSO • HONRA</div></header>
+<nav id="nav">
+<button class="active" onclick="show('inicio',this)">🏠 Início</button>
+<button onclick="show('recrutamento',this)">📝 Recrutamento</button>
+<button onclick="show('whatsapp',this)">💬 WhatsApp</button>
+<button onclick="show('avisos',this)">📢 Avisos & Regras</button>
+<button onclick="show('membros',this)">👥 Membros</button>
+<button onclick="show('gg',this)">🎯 GG</button>
+<button onclick="show('guerra',this)">⚔️ Guerra</button>
+<button onclick="show('ranking',this)">🏆 Ranking</button>
+<button onclick="adminLogin()">👑 Administração</button>
+</nav>
+<main>
+<section id="inicio" class="page active">
+<div class="hero"><h1 id="title"></h1><p id="welcome"></p></div>
+<div class="cards"><div class="card"><div class="num" id="mc">0</div><div class="small">MEMBROS</div></div><div class="card"><div class="num" id="honorGoal"></div><div class="small">META DE HONRA</div></div><div class="card"><div class="num" id="ggTime"></div><div class="small">HORÁRIO DO GG</div></div><div class="card"><div class="num" id="warGoal"></div><div class="small">META RUSH</div></div></div>
+<div class="panel"><h2>👑 Liderança</h2><div id="leadership" class="rolebox"></div></div>
+<div class="panel"><h2>📢 Últimos avisos</h2><div id="homeNotices"></div></div>
+</section>
+
+<section id="recrutamento" class="page"><div class="panel"><h2>📝 Recrutamento 7K ALPHA</h2><p class="muted">Preencha com atenção. Use os campos abaixo para escrever suas informações ✍️. Depois, entre no grupo e aguarde a liderança orientar as próximas etapas.</p>
+<div class="grid"><div><label>✍️ Nick / Nome</label><input class="input" id="rn" placeholder="Digite seu nick"></div><div><label>🎮 ID do jogo</label><input class="input" id="rid" inputmode="numeric" placeholder="Digite seu ID"></div><div><label>🎂 Idade</label><input class="input" id="rage" type="number"></div><div><label>🎯 Função</label><select class="input" id="rrole"><option>Rush</option><option>Full Gás</option><option>Curandeiro</option></select></div></div>
+<label>🕐 Disponibilidade para GG</label><input class="input" id="rav" placeholder="Ex.: sexta, 19h às 22h">
+<label>🎙️ Possui call e WhatsApp?</label><select class="input" id="rcall"><option>Sim</option><option>Não</option></select>
+<label>🖊️ Conte um pouco sobre você / observações</label><textarea class="input" id="rmsg" rows="5" placeholder="Escreva aqui..."></textarea>
+<button class="btn" onclick="submitRecruit()">ENVIAR FORMULÁRIO</button></div></section>
+
+<section id="whatsapp" class="page"><div class="panel"><h2>💬 Grupo do WhatsApp para Recrutamento</h2><p class="muted">Entre no grupo oficial de recrutamento para acompanhar as próximas etapas.</p><div class="notice">⚠️ Entrar no grupo não significa aprovação. Após preencher o formulário, aguarde um ADM chamar você.</div><a class="btn" target="_blank" href="https://chat.whatsapp.com/EzlOuW6ad0V77AxGvEGz70?s=cl&p=a&mlu=4">ENTRAR NO GRUPO</a></div></section>
+
+<section id="avisos" class="page"><div class="panel"><h2>📢 Avisos & Regras da Guilda</h2><div id="notices"></div></div></section>
+<section id="membros" class="page"><div class="panel"><h2>👥 Membros da 7K ALPHA</h2><p class="muted">Somente a administração pode cadastrar ou editar membros.</p><table><thead><tr><th>Nick</th><th>Função</th><th>Honra</th><th>GG</th></tr></thead><tbody id="members"></tbody></table></div></section>
+<section id="gg" class="page"><div class="panel"><h2>🎯 Controle de GG</h2><table><thead><tr><th>Nick</th><th>Presença</th><th>Pontos</th></tr></thead><tbody id="gg"></tbody></table></div></section>
+<section id="guerra" class="page"><div class="panel"><h2>⚔️ Guerra de Guilda</h2><div class="notice">Meta de rush: <b>200 pontos ou mais</b>.</div><table><thead><tr><th>Nick</th><th>Pontos</th><th>Meta</th></tr></thead><tbody id="war"></tbody></table></div></section>
+<section id="ranking" class="page"><div class="panel"><h2>🏆 Ranking</h2><table><thead><tr><th>#</th><th>Nick</th><th>Honra</th><th>GG</th></tr></thead><tbody id="rank"></tbody></table></div></section>
+
+<section id="admin" class="page"><div class="panel private"><h2>🔐 Administração privada</h2><p class="muted">Somente administradores com senha conseguem abrir esta área.</p>
+<h2>👑 Liderança</h2><div class="grid"><input class="input" id="leader" placeholder="Nome do Líder"><input class="input" id="vice1" placeholder="Nome do Vice"><input class="input" id="vice2" placeholder="Nome do Outro Vice"></div><button class="btn" onclick="saveLeadership()">Salvar liderança</button>
+<hr style="border-color:#252525;margin:20px 0"><h2>✏️ Editar tela inicial</h2><div class="grid"><input class="input" id="etitle" placeholder="Título"><input class="input" id="ewelcome" placeholder="Descrição"><input class="input" id="eggtime" placeholder="Horário GG"><input class="input" id="ehonor" placeholder="Meta honra"><input class="input" id="ewar" placeholder="Meta guerra"></div><button class="btn" onclick="saveHome()">Salvar início</button>
+<hr style="border-color:#252525;margin:20px 0"><h2>👥 Gerenciar membros</h2><p class="muted">Você pode adicionar, editar ou excluir jogadores.</p><div class="grid"><input class="input" id="mn" placeholder="Nick"><select class="input" id="mr"><option>Rush</option><option>Full Gás</option><option>Curandeiro</option></select><input class="input" id="mh" type="number" placeholder="Honra"><input class="input" id="mg" type="number" placeholder="Pontos GG"></div><button class="btn" onclick="addMember()">➕ Adicionar membro</button><div id="manageMembers"></div>
+<hr style="border-color:#252525;margin:20px 0"><h2>📢 Editar avisos e regras</h2><textarea class="input" id="noticeText" rows="4" placeholder="Escreva o aviso ou regra..."></textarea><button class="btn" onclick="addNotice()">Publicar</button><div id="adminNotices"></div>
+<hr style="border-color:#252525;margin:20px 0"><h2>🔔 Recrutamentos recebidos</h2><div id="leads"></div>
+<hr style="border-color:#252525;margin:20px 0"><h2>🔑 Senhas dos administradores</h2><p class="muted">Defina uma senha para cada cargo. Troque as senhas padrão assim que instalar.</p><div class="grid"><input class="input" id="pLeader" type="password" placeholder="Senha Líder"><input class="input" id="pVice1" type="password" placeholder="Senha Vice"><input class="input" id="pVice2" type="password" placeholder="Senha Outro Vice"></div><button class="btn" onclick="savePasswords()">Salvar senhas</button>
+<br><br><button class="btn gray" onclick="logout()">Sair</button></div></section>
+</main><div class="toast" id="toast"></div>
+
+<script>
+const K='7k_alpha_v4';
+let d=JSON.parse(localStorage.getItem(K)||'null');
+if(!d)d={home:{title:'7K ALPHA',welcome:'Central oficial para organização da guilda, recrutamento, GG e Guerra de Guilda.',gg:'19h',honor:'3K',war:'200+'},leadership:{leader:'Líder',vice1:'Vice',vice2:'Outro Vice'},members:[],notices:[{text:'Respeito e educação são obrigatórios dentro da guilda.'},{text:'GG é obrigatório para jogadores convocados. Mantenha compromisso com a equipe.'}],leads:[],passwords:{leader:'7KALPHAADM',vice1:'7KALPHAVICE',vice2:'7KALPHAVICE2'}};
+let loggedRole=null;
+function save(){localStorage.setItem(K,JSON.stringify(d));render()}
+function toast(t){let x=document.getElementById('toast');x.textContent=t;x.style.display='block';setTimeout(()=>x.style.display='none',3500)}
+function show(id,b){if(id==='admin'&&!loggedRole)return adminLogin();document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active')}
+function render(){
+title.textContent=d.home.title;welcome.textContent=d.home.welcome;ggTime.textContent=d.home.gg;honorGoal.textContent=d.home.honor;warGoal.textContent=d.home.war;mc.textContent=d.members.length;
+leadership.innerHTML=`<div class="card"><span class="small">👑 LÍDER</span><b>${d.leadership.leader}</b></div><div class="card"><span class="small">⭐ VICE</span><b>${d.leadership.vice1}</b></div><div class="card"><span class="small">⭐ VICE</span><b>${d.leadership.vice2}</b></div>`;
+let ns=(d.notices||[]).map(n=>`<div class="notice">${n.text}</div>`).join('');notices.innerHTML=ns||'<p class="muted">Nenhum aviso.</p>';homeNotices.innerHTML=ns||'<p class="muted">Nenhum aviso.</p>';
+members.innerHTML=d.members.map(m=>`<tr><td>${m.name}</td><td><span class="tag">${m.role}</span></td><td>${m.honor}</td><td>${m.gg}</td></tr>`).join('');
+gg.innerHTML=d.members.map(m=>`<tr><td>${m.name}</td><td class="success">✅</td><td>${m.gg}</td></tr>`).join('');
+war.innerHTML=d.members.map(m=>`<tr><td>${m.name}</td><td>${m.gg}</td><td class="${m.gg>=200?'success':'danger'}">${m.gg>=200?'✓ Meta atingida':'Abaixo da meta'}</td></tr>`).join('');
+rank.innerHTML=[...d.members].sort((a,b)=>b.honor-a.honor).map((m,i)=>`<tr><td>${i+1}</td><td>${m.name}</td><td>${m.honor}</td><td>${m.gg}</td></tr>`).join('');
+manageMembers.innerHTML=d.members.map((m,i)=>`<div class="notice"><b>${m.name}</b> • ${m.role} • Honra ${m.honor} • GG ${m.gg}<br><button class="btn gray" onclick="editMember(${i})">✏️ Editar</button> <button class="btn red" onclick="delMember(${i})">🗑️ Excluir</button></div>`).join('');
+adminNotices.innerHTML=(d.notices||[]).map((n,i)=>`<div class="notice">${n.text}<button class="btn gray" style="float:right;padding:5px" onclick="editNotice(${i})">✏️</button> <button class="btn red" style="float:right;padding:5px;margin-right:5px" onclick="delNotice(${i})">🗑️</button></div>`).join('');
+leads.innerHTML=(d.leads||[]).slice().reverse().map((x,i)=>`<div class="candidate"><b>🔔 Novo recrutamento: ${x.name}</b><br>🎮 ID: ${x.id} • 🎂 ${x.age} anos • 🎯 ${x.role}<br>🕐 ${x.avail}<br>🎙️ Call/WhatsApp: ${x.call}<br>🖊️ ${x.msg||'Sem observação'}<br><span class="small">${x.date}</span></div>`).join('')||'<p class="muted">Nenhum recrutamento recebido.</p>';
+}
+function adminLogin(){if(loggedRole){show('admin');return}let p=prompt('Escolha o cargo: 1 = Líder | 2 = Vice | 3 = Outro Vice');let role=p==='1'?'leader':p==='2'?'vice1':p==='3'?'vice2':null;if(!role)return;let pass=prompt('Senha do administrador:');if(pass===d.passwords[role]){loggedRole=role;show('admin');toast('🔐 Acesso autorizado')}else alert('Senha incorreta.')}
+function logout(){loggedRole=null;show('inicio');toast('Você saiu da área administrativa.')}
+function guard(){if(!loggedRole){alert('Área exclusiva dos administradores.');return false}return true}
+function saveHome(){if(!guard())return;d.home={title:etitle.value||d.home.title,welcome:ewelcome.value||d.home.welcome,gg:eggtime.value||d.home.gg,honor:ehonor.value||d.home.honor,war:ewar.value||d.home.war};save();toast('✅ Tela inicial atualizada')}
+function saveLeadership(){if(!guard())return;d.leadership={leader:leader.value||d.leadership.leader,vice1:vice1.value||d.leadership.vice1,vice2:vice2.value||d.leadership.vice2};save();toast('👑 Liderança atualizada')}
+function savePasswords(){if(!guard())return;d.passwords={leader:pLeader.value||d.passwords.leader,vice1:pVice1.value||d.passwords.vice1,vice2:pVice2.value||d.passwords.vice2};pLeader.value=pVice1.value=pVice2.value='';save();toast('🔑 Senhas atualizadas')}
+function addMember(){if(!guard())return;let n=mn.value.trim();if(!n)return alert('Digite o nick.');d.members.push({name:n,role:mr.value,honor:+mh.value||0,gg:+mg.value||0});mn.value=mh.value=mg.value='';save();toast('👥 Membro adicionado')}
+function editMember(i){if(!guard())return;let m=d.members[i];let n=prompt('Nick:',m.name);if(n===null)return;let r=prompt('Função (Rush, Full Gás ou Curandeiro):',m.role);let h=prompt('Honra:',m.honor);let g=prompt('Pontos GG:',m.gg);m.name=n||m.name;m.role=r||m.role;m.honor=+h||0;m.gg=+g||0;save();toast('✏️ Membro editado')}
+function delMember(i){if(confirm('Excluir este membro?')){d.members.splice(i,1);save()}}
+function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)return;d.notices.push({text:t});noticeText.value='';save();toast('📢 Publicado')}
+function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
+function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
+function submitRecruit(){let n=rn.value.trim();if(!n)return alert('Informe seu nick/nome.');d.leads.push({name:n,id:rid.value,age:rage.value,role:rrole.value,avail:rav.value,call:rcall.value,msg:rmsg.value,date:new Date().toLocaleString('pt-BR')});save();toast('✅ Formulário enviado! Aguarde as próximas etapas.');['rn','rid','rage','rav','rmsg'].forEach(id=>document.getElementById(id).value='');}
+render();
+</script>
+</body></html>
