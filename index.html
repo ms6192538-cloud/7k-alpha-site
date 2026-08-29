@@ -3,6 +3,17 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>7K ALPHA • Central</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://pcnestmkxcelikekmwog.supabase.co";
+const SUPABASE_KEY = "SUA_CHAVE_AQUI";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+</script>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#080808;color:#eee;font:14px Arial,sans-serif}header{background:#101010;border-bottom:1px solid #292929;padding:18px;position:sticky;top:0;z-index:5}.logo{font-size:25px;font-weight:900;letter-spacing:2px}.logo b{color:#e3262e}.sub{color:#888;font-size:11px;margin-top:4px}
 nav{display:flex;gap:7px;overflow:auto;background:#0d0d0d;padding:10px;border-bottom:1px solid #222}nav button{background:#181818;color:#bbb;border:1px solid #292929;padding:10px 13px;border-radius:8px;white-space:nowrap}nav button.active{background:#e3262e;color:#fff}
