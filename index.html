@@ -472,139 +472,146 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
     transition:.45s ease;
 }
 
-/* ===== REFLEXO METÁLICO ANIMADO ===== */
+/* ===== STAFF 7K ALPHA - CARDS COM FUNDO ===== */
 
+#inicio .leadProfiles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+/* CARD */
+#inicio .leadProfile{
+  position:relative;
+  overflow:hidden;
+  min-height:180px;
+  padding:28px 20px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.16);
+  background:#090909;
+  isolation:isolate;
+  transition:.45s ease;
+}
+
+/* FUNDO DA IMAGEM — FICA PRESO DENTRO DO CARD */
 #inicio .leadProfile::before{
-    content:"";
-    position:absolute;
-    top:-100%;
-    left:-45%;
-    width:38%;
-    height:300%;
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
 
-    transform:rotate(25deg);
+  background-image:var(--staff-bg);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 
-    background:linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255,255,255,.05) 25%,
-        rgba(255,255,255,.75) 50%,
-        rgba(255,255,255,.08) 75%,
-        transparent 100%
-    );
+  opacity:.28;
+  filter:brightness(.65) saturate(.8);
 
-    filter:blur(3px);
-    animation:staffMetal 4.5s ease-in-out infinite;
-
-    pointer-events:none;
-    z-index:1;
+  transition:.45s ease;
 }
 
-@keyframes staffMetal{
-    0%{
-        left:-45%;
-    }
-
-    50%{
-        left:110%;
-    }
-
-    100%{
-        left:110%;
-    }
-}
-
-/* ===== BRILHO INTERNO ===== */
-
+/* ESCURECE A IMAGEM PARA O TEXTO APARECER */
 #inicio .leadProfile::after{
-    content:"";
-    position:absolute;
-    inset:-30%;
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
 
-    background:radial-gradient(
-        circle at 50% 50%,
-        rgba(255,255,255,.14),
-        transparent 38%
-    );
-
-    animation:staffGlow 4s ease-in-out infinite;
-
-    pointer-events:none;
-    z-index:0;
-}
-
-@keyframes staffGlow{
-    0%,100%{
-        opacity:.25;
-        transform:scale(.95);
-    }
-
-    50%{
-        opacity:.8;
-        transform:scale(1.08);
-    }
-}
-
-/* ===== CONTEÚDO ACIMA DA ANIMAÇÃO ===== */
-
-#inicio .leadProfile > *{
-    position:relative;
-    z-index:3;
-}
-
-/* ===== EFEITO AO TOCAR ===== */
-
-#inicio .leadProfile:hover{
-    transform:translateY(-6px);
-    border-color:rgba(255,255,255,.45);
-    box-shadow:
-        0 0 30px rgba(255,255,255,.12),
-        inset 0 0 25px rgba(255,255,255,.06);
-}
-
-/* ===== CEO — PRETO + VERMELHO METÁLICO ===== */
-
-#inicio .leadProfile:first-child{
-    background:
-        linear-gradient(
-            120deg,
-            #050505 0%,
-            #171717 20%,
-            #651015 42%,
-            #d32630 50%,
-            #3b0b0f 58%,
-            #141414 80%,
-            #030303 100%
-        );
-
-    background-size:220% 220%;
-    animation:ceoMetal 7s ease-in-out infinite;
-
-    border-color:rgba(227,38,46,.65);
-
-    box-shadow:
-        0 0 
-
-/* ===== CEO — METAL PRETO + VERMELHO ===== */
-
-#inicio .leadProfile:first-child{
   background:
     linear-gradient(
-      120deg,
-      #050505 0%,
-      #171717 22%,
-      #651015 45%,
-      #d32630 50%,
-      #3b0b0f 55%,
-      #141414 78%,
-      #030303 100%
+      135deg,
+      rgba(0,0,0,.88),
+      rgba(0,0,0,.45),
+      rgba(227,38,46,.18)
     );
-  background-size:220% 220%;
-  border-color:rgba(227,38,46,.65);
+
+  pointer-events:none;
+}
+
+/* CONTEÚDO FICA POR CIMA */
+#inicio .leadProfile > *{
+  position:relative;
+  z-index:2;
+}
+
+/* CEO */
+#inicio .leadProfile:first-child{
+  --staff-bg:url("COLE-AQUI-A-IMAGEM-DO-CEO");
+  border-color:rgba(227,38,46,.55);
   box-shadow:
-    0 0 28px rgba(227,38,46,.18),
-    inset 0 0 35px rgba(227,38,46,.12);
-  animation:ceoMetal 7s ease-in-out infinite;
+    0 0 25px rgba(227,38,46,.18),
+    inset 0 0 35px rgba(227,38,46,.10);
+}
+
+/* VICE MK */
+#inicio .leadProfile:nth-child(2){
+  --staff-bg:url("COLE-AQUI-A-IMAGEM-DO-MK");
+  border-color:rgba(255,255,255,.18);
+}
+
+/* VICE CAUA */
+#inicio .leadProfile:nth-child(3){
+  --staff-bg:url("COLE-AQUI-A-IMAGEM-DO-CAUA");
+  border-color:rgba(227,38,46,.25);
+}
+
+/* EFEITO AO PASSAR O DEDO/MOUSE */
+#inicio .leadProfile:hover{
+  transform:translateY(-5px);
+}
+
+#inicio .leadProfile:hover::before{
+  opacity:.38;
+  transform:scale(1.04);
+}
+
+/* SÍMBOLO */
+#inicio .rankSymbol{
+  font-size:28px;
+  margin-bottom:5px;
+  position:relative;
+  z-index:3;
+}
+
+/* CARGO */
+#inicio .leadRole{
+  font-size:11px;
+  color:#aaa;
+  letter-spacing:1.5px;
+  position:relative;
+  z-index:3;
+}
+
+/* NOME */
+#inicio .leadName{
+  font-size:19px;
+  font-weight:900;
+  margin-top:5px;
+  position:relative;
+  z-index:3;
+}
+
+/* DESCRIÇÃO */
+#inicio .leadDesc{
+  font-size:11px;
+  color:#aaa;
+  margin-top:4px;
+  position:relative;
+  z-index:3;
+}
+
+/* CELULAR */
+@media(max-width:700px){
+
+  #inicio .leadProfiles{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  #inicio .leadProfile{
+    min-height:180px;
+  }
 }
 
 
