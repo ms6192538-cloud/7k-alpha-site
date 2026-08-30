@@ -1338,6 +1338,94 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
     filter: brightness(1.7);
   }
 }
+  /* ===== CORREÇÃO MOBILE - RECRUTAMENTO ===== */
+@media (max-width: 700px) {
+
+  /* Cada página ocupa a tela normalmente */
+  .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Esconde páginas que não estão ativas */
+  .page:not(.active) {
+    display: none !important;
+  }
+
+  /* Página ativa fica em bloco, nunca em coluna lateral */
+  .page.active {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  /* Início */
+  #inicio {
+    width: 100% !important;
+    display: block !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Painéis do início */
+  #inicio .panel,
+  #inicio .card,
+  #inicio .alphaHero {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Formulário de recrutamento */
+  #recrutamento {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  #recrutamento .panel,
+  #recrutamento form,
+  #recrutamento .grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Inputs do formulário */
+  #recrutamento input,
+  #recrutamento select,
+  #recrutamento textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Remove qualquer comportamento de coluna lateral */
+  main {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Evita que algum elemento fique preso na direita */
+  #recrutamento {
+    position: relative !important;
+    float: none !important;
+    right: auto !important;
+    left: auto !important;
+  }
+
+}
 </style>
 </head>
 <body>
