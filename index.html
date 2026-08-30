@@ -626,7 +626,7 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
 
 <script>
 const K='7k_alpha_v4';
-let d=JSON.parse(localStorage.getItem(K)||'null');
+let d=JSON.parse(localStorage.getItem(K))||null;
 if(!d)d={home:{title:'7K ALPHA',welcome:'Central oficial para organização da guilda, recrutamento, GG e Guerra de Guilda.',gg:'19h',honor:'3K',war:'200+'},leadership:{leader:'Líder',vice1:'Vice',vice2:'Outro Vice'},members:[],notices:[{text:'Respeito e educação são obrigatórios dentro da guilda.'},{text:'GG é obrigatório para jogadores convocados. Mantenha compromisso com a equipe.'}],leads:[],passwords:{leader:'7KALPHAADM',vice1:'7KALPHAVICE',vice2:'7KALPHAVICE2'}};
 let loggedRole=null;
 function save(){localStorage.setItem(K,JSON.stringify(d));render()}
