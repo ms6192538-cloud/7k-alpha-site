@@ -2475,8 +2475,45 @@ function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)retu
 function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
 async function submitRecruit(){
+
+  const nick = document.getElementById('rn')?.value.trim() || '';
+  const gameId = document.getElementById('rid')?.value.trim() || '';
+  const idade = document.getElementById('rage')?.value || '';
+  const funcao = document.getElementById('rrole')?.value || '';
+  const disponibilidade = document.getElementById('rav')?.value.trim() || '';
+  const callWhatsapp = document.getElementById('rcall')?.value || '';
+  const mensagem = document.getElementById('rmsg')?.value.trim() || '';
+
+  if (!nick || !gameId || !idade || !funcao) {
+    alert('⚠️ Preencha todos os campos obrigatórios do recrutamento.');
+    return;
+  }
+
+  const { data, error } = await supabaseClient
+    .from('recruitments')
+    .insert([{
+      name: nick,
+      game_id: gameId,
+      age: Number(idade),
+      role: funcao,
+      availability: disponibilidade,
+      call: callWhatsapp,
+      message: mensagem,
+      status: 'pending'
+    }])
+    .select();
+
+  if (error) {
+    console.error('Erro ao enviar recrutamento:', error);
+    alert('❌ Não foi possível enviar o formulário.\n\n' + error.message);
+    return;
+  }
+
+  alert('✅ Formulário enviado com sucesso!\n\nSeu recrutamento foi recebido pela 7K ALPHA.');
+
+}
   alert('1️⃣ Função iniciou!');
-try {
+
   const nick = document.getElementById('rn').value.trim();
   const gameId = document.getElementById('rid').value.trim();
   const idade = document.getElementById('age').value;
