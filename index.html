@@ -101,16 +101,54 @@ function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)retu
 function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
 async function submitRecruit(){
+
   const nick = document.getElementById('rn').value.trim();
+  const gameId = document.getElementById('rid').value.trim();
   const idade = document.getElementById('age').value;
   const funcao = document.getElementById('role').value;
-  const call = document.getElementById('call').value;
+  const disponibilidade = document.getElementById('rav').value.trim();
+  const callWhatsapp = document.getElementById('call').value;
   const mensagem = document.getElementById('rmsg').value.trim();
 
-  if(!nick || !idade || !funcao){
+  if(!nick || !gameId || !idade || !funcao || !disponibilidade || !callWhatsapp){
     alert('⚠️ Preencha todos os campos obrigatórios!');
     return;
   }
+
+  const possuiCall = callWhatsapp === 'Sim';
+  const possuiWhatsapp = callWhatsapp === 'Sim';
+
+  const { data, error } = await supabaseClient
+    .from('recruitments')
+    .insert([{
+      name: nick,
+      game_id: gameId,
+      age: Number(idade),
+      role: funcao,
+      availability: disponibilidade,
+      has_call: possuiCall,
+      has_whatsapp: possuiWhatsapp,
+      message: mensagem,
+      status: 'pending'
+    }])
+    .select();
+
+  if(error){
+    console.error('ERRO SUPABASE:', error);
+    alert('❌ Erro ao enviar recrutamento:\n\n' + error.message);
+    return;
+  }
+
+  console.log('RECRUTAMENTO ENVIADO:', data);
+  alert('✅ Formulário enviado com sucesso!');
+
+  ['rn','rid','age','rav','rmsg'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+
+  document.getElementById('role').selectedIndex = 0;
+  document.getElementById('call').selectedIndex = 0;
+}
 
   const { data, error } = await supabaseClient
   .from('Recrutamento')
