@@ -444,16 +444,216 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
   gap:14px;
 }
 
+/* ===== STAFF 7K ALPHA — METAL PREMIUM ===== */
+
 #inicio .leadProfile{
-  min-height:105px;
+  position:relative;
+  overflow:hidden;
+  min-height:145px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.18);
+  background:#090909;
+  isolation:isolate;
+  transition:.45s ease;
+}
+
+/* REFLEXO METÁLICO */
+#inicio .leadProfile::before{
+  content:"";
+  position:absolute;
+  top:-100%;
+  left:-45%;
+  width:38%;
+  height:300%;
+  transform:rotate(25deg);
+  background:linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.05) 25%,
+    rgba(255,255,255,.75) 50%,
+    rgba(255,255,255,.08) 75%,
+    transparent 100%
+  );
+  filter:blur(3px);
+  animation:staffMetal 4.5s ease-in-out infinite;
+  pointer-events:none;
+  z-index:1;
+}
+
+/* BRILHO INTERNO */
+#inicio .leadProfile::after{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:radial-gradient(
+    circle at 50% 50%,
+    rgba(255,255,255,.12),
+    transparent 38%
+  );
+  animation:staffGlow 4s ease-in-out infinite;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* CONTEÚDO ACIMA DO EFEITO */
+#inicio .leadProfile > *{
+  position:relative;
+  z-index:3;
+}
+
+
+/* ===== CEO — METAL PRETO + VERMELHO ===== */
+
+#inicio .leadProfile:first-child{
   background:
-    radial-gradient(circle at 50% 0%,
-    rgba(227,38,46,.18),
-    transparent 60%),
-    linear-gradient(145deg,#171717,#0b0b0b);
-  border:1px solid #292929;
-  box-shadow:0 0 0 rgba(227,38,46,0);
-  transition:.35s ease;
+    linear-gradient(
+      120deg,
+      #050505 0%,
+      #171717 22%,
+      #651015 45%,
+      #d32630 50%,
+      #3b0b0f 55%,
+      #141414 78%,
+      #030303 100%
+    );
+  background-size:220% 220%;
+  border-color:rgba(227,38,46,.65);
+  box-shadow:
+    0 0 28px rgba(227,38,46,.18),
+    inset 0 0 35px rgba(227,38,46,.12);
+  animation:ceoMetal 7s ease-in-out infinite;
+}
+
+
+/* ===== VICE MK — PRATA + PRETO ===== */
+
+#inicio .leadProfile:nth-child(2){
+  background:
+    linear-gradient(
+      120deg,
+      #030303 0%,
+      #111111 20%,
+      #555555 38%,
+      #eeeeee 48%,
+      #666666 56%,
+      #171717 76%,
+      #020202 100%
+    );
+  background-size:220% 220%;
+  border-color:rgba(255,255,255,.22);
+  box-shadow:
+    0 0 25px rgba(255,255,255,.08),
+    inset 0 0 35px rgba(255,255,255,.06);
+  animation:viceMetalOne 8s ease-in-out infinite;
+}
+
+
+/* ===== VICE CAUA — BRANCO + PRETO ===== */
+
+#inicio .leadProfile:nth-child(3){
+  background:
+    linear-gradient(
+      120deg,
+      #020202 0%,
+      #252525 25%,
+      #8f8f8f 40%,
+      #f4f4f4 50%,
+      #707070 58%,
+      #1a1a1a 78%,
+      #030303 100%
+    );
+  background-size:220% 220%;
+  border-color:rgba(255,255,255,.25);
+  box-shadow:
+    0 0 25px rgba(255,255,255,.07),
+    inset 0 0 35px rgba(255,255,255,.05);
+  animation:viceMetalTwo 6.5s ease-in-out infinite;
+}
+
+
+/* ===== ANIMAÇÕES ===== */
+
+@keyframes staffMetal{
+  0%{
+    left:-55%;
+    opacity:0;
+  }
+
+  15%{
+    opacity:1;
+  }
+
+  55%{
+    left:125%;
+    opacity:1;
+  }
+
+  70%,100%{
+    left:125%;
+    opacity:0;
+  }
+}
+
+@keyframes staffGlow{
+  0%,100%{
+    transform:scale(.9);
+    opacity:.15;
+  }
+
+  50%{
+    transform:scale(1.15);
+    opacity:.55;
+  }
+}
+
+@keyframes ceoMetal{
+  0%,100%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+}
+
+@keyframes viceMetalOne{
+  0%,100%{
+    background-position:100% 50%;
+  }
+
+  50%{
+    background-position:0% 50%;
+  }
+}
+
+@keyframes viceMetalTwo{
+  0%,100%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+}
+
+
+/* ===== EFEITO AO TOCAR ===== */
+
+#inicio .leadProfile:hover{
+  transform:translateY(-5px) scale(1.01);
+}
+
+#inicio .leadProfile:first-child:hover{
+  box-shadow:
+    0 0 40px rgba(227,38,46,.30),
+    inset 0 0 45px rgba(227,38,46,.16);
+}
+
+#inicio .leadProfile:nth-child(2):hover,
+#inicio .leadProfile:nth-child(3):hover{
+  box-shadow:
+    0 0 35px rgba(255,255,255,.15),
+    inset 0 0 40px rgba(255,255,255,.08);
 }
 
 #inicio .leadProfile:hover{
