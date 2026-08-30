@@ -2475,7 +2475,6 @@ function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)retu
 function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
 async function submitRecruit(){
-  alert('🚀 A função de recrutamento foi chamada!');
 
   const nick = document.getElementById('rn').value.trim();
   const gameId = document.getElementById('rid').value.trim();
