@@ -2476,7 +2476,7 @@ function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
 async function submitRecruit(){
   alert('1️⃣ Função iniciou!');
-
+try {
   const nick = document.getElementById('rn').value.trim();
   const gameId = document.getElementById('rid').value.trim();
   const idade = document.getElementById('age').value;
