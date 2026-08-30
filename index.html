@@ -740,7 +740,10 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
   </p>
 </div>
 <div class="cards"><div class="card"><div class="num" id="mc">0</div><div class="small">MEMBROS</div></div><div class="card"><div class="num" id="honorGoal"></div><div class="small">META DE HONRA</div></div><div class="card"><div class="num" id="ggTime"></div><div class="small">HORÁRIO DO GG</div></div><div class="card"><div class="num" id="warGoal"></div><div class="small">META RUSH</div></div></div>
-<div class="panel"><h2>👑 Liderança</h2><div id="leadership" class="rolebox"></div></div>
+<div class="panel staffAccess" onclick="show('staff',this)">
+  <h2>👑 STAFF 7K</h2>
+  <p>Toque aqui para visualizar a liderança da 7K ALPHA</p>
+</div>
 <div class="panel"><h2>📢 Últimos avisos</h2><div id="homeNotices"></div></div>
 </section>
 
@@ -758,7 +761,40 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
 <section id="gg" class="page"><div class="panel"><h2>🎯 Controle de GG</h2><table><thead><tr><th>Nick</th><th>Presença</th><th>Pontos</th></tr></thead><tbody id="gg"></tbody></table></div></section>
 <section id="guerra" class="page"><div class="panel"><h2>⚔️ Guerra de Guilda</h2><div class="notice">Meta de rush: <b>200 pontos ou mais</b>.</div><table><thead><tr><th>Nick</th><th>Pontos</th><th>Meta</th></tr></thead><tbody id="war"></tbody></table></div></section>
 <section id="ranking" class="page"><div class="panel"><h2>🏆 Ranking</h2><table><thead><tr><th>#</th><th>Nick</th><th>Honra</th><th>GG</th></tr></thead><tbody id="rank"></tbody></table></div></section>
+<section id="staff" class="page">
 
+  <div class="staffHeader">
+    <span>⚡</span>
+    <h2>STAFF 7K ALPHA</h2>
+    <p>LIDERANÇA • DISCIPLINA • COMPROMISSO</p>
+  </div>
+
+  <div class="staffGrid">
+
+    <div class="staffCard ceoCard">
+      <div class="staffSymbol">♛</div>
+      <span class="staffRole">CEO</span>
+      <h3>7K. OLISE CEO</h3>
+      <div class="staffLine"></div>
+    </div>
+
+    <div class="staffCard viceCard">
+      <div class="staffSymbol">◆</div>
+      <span class="staffRole">VICE</span>
+      <h3>7K MK</h3>
+      <div class="staffLine"></div>
+    </div>
+
+    <div class="staffCard viceCard2">
+      <div class="staffSymbol">◇</div>
+      <span class="staffRole">VICE</span>
+      <h3>7K CAUA</h3>
+      <div class="staffLine"></div>
+    </div>
+
+  </div>
+
+</section>
 <section id="admin" class="page"><div class="panel private"><h2>🔐 Administração privada</h2><p class="muted">Somente administradores com senha conseguem abrir esta área.</p>
 <h2>👑 Liderança</h2><div class="grid"><input class="input" id="leader" placeholder="Nome do Líder"><input class="input" id="vice1" placeholder="Nome do Vice"><input class="input" id="vice2" placeholder="Nome do Outro Vice"></div><button class="btn" onclick="saveLeadership()">Salvar liderança</button>
 <hr style="border-color:#252525;margin:20px 0"><h2>✏️ Editar tela inicial</h2><div class="grid"><input class="input" id="etitle" placeholder="Título"><input class="input" id="ewelcome" placeholder="Descrição"><input class="input" id="eggtime" placeholder="Horário GG"><input class="input" id="ehonor" placeholder="Meta honra"><input class="input" id="ewar" placeholder="Meta guerra"></div><button class="btn" onclick="saveHome()">Salvar início</button>
