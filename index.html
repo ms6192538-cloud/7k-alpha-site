@@ -1,4 +1,4 @@
-<!doctype html>
+9<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -112,17 +112,27 @@ async function submitRecruit(){
     return;
   }
 
-  const { error } = await supabaseClient
-    .from('recruitments')
-    .insert([{
-      nick: nick,
-      idade: Number(idade),
-      funcao: funcao,
-      call: call,
-      whatsapp: call,
-      mensagem: mensagem,
-      data: new Date().toISOString()
-    }]);
+  const { data, error } = await supabaseClient
+  .from('recruitments')
+  .insert([{
+    nick: nick,
+    idade: Number(idade),
+    funcao: funcao,
+    call: call,
+    whatsapp: call,
+    mensagem: mensagem,
+    data: new Date().toISOString()
+  }])
+  .select();
+
+if (error) {
+  console.error('ERRO SUPABASE:', error);
+  alert('❌ ERRO SUPABASE:\n\n' + error.message);
+  return;
+}
+
+console.log('CADASTRO ENVIADO:', data);
+alert('✅ Formulário enviado com sucesso!');
 
   if(error){
     console.error(error);
