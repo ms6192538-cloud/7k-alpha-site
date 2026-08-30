@@ -2475,6 +2475,7 @@ function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)retu
 function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
 async function submitRecruit(){
+  alert('1️⃣ Função iniciou!');
 
   const nick = document.getElementById('rn').value.trim();
   const gameId = document.getElementById('rid').value.trim();
@@ -2491,7 +2492,7 @@ async function submitRecruit(){
 
   const possuiCall = callWhatsapp === 'Sim';
   const possuiWhatsapp = callWhatsapp === 'Sim';
-
+alert('2️⃣ Cheguei no envio para o Supabase!');
   const { data, error } = await supabaseClient
     .from('recruitments')
     .insert([{
@@ -2506,6 +2507,7 @@ async function submitRecruit(){
       status: 'pending'
     }])
     .select();
+  alert('3️⃣ Supabase respondeu!');
 
   if(error){
     console.error('ERRO SUPABASE:', error);
