@@ -113,7 +113,7 @@ async function submitRecruit(){
   }
 
   const { error } = await supabaseClient
-    .from('Recrutamento')
+    .from('recruitments')
     .insert([{
       nick: nick,
       idade: Number(idade),
