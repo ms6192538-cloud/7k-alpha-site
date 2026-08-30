@@ -2481,7 +2481,7 @@ async function submitRecruit(){
   const idade = document.getElementById('age').value;
   const funcao = document.getElementById('role').value;
   const disponibilidade = document.getElementById('rav').value.trim();
-  const callWhatsapp = document.getElementById('call').value;
+  const callWhatsapp = document.getElementById('rcall').value;
   const mensagem = document.getElementById('rmsg').value.trim();
 
   if(!nick || !gameId || !idade || !funcao || !disponibilidade || !callWhatsapp){
@@ -2521,7 +2521,7 @@ async function submitRecruit(){
   });
 
   document.getElementById('role').selectedIndex = 0;
-  document.getElementById('call').selectedIndex = 0;
+  document.getElementById('rcall').selectedIndex = 0;
 }
   function mostrarNotificacaoRecrutamento(recruta) {
   alert(
