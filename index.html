@@ -703,6 +703,214 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
     font-size:12px;
   }
 }
+  /* ===== STAFF 7K ALPHA ===== */
+
+#staff{
+  padding:18px;
+}
+
+.staffAccess{
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+.staffAccess:hover{
+  transform:translateY(-3px);
+  border-color:#e3262e;
+  box-shadow:0 0 20px rgba(227,38,46,.18);
+}
+
+.staffAccess p{
+  margin:6px 0 0;
+  color:#888;
+  font-size:13px;
+}
+
+.staffHeader{
+  text-align:center;
+  padding:22px 15px;
+  margin-bottom:18px;
+  border:1px solid #292929;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(227,38,46,.18),transparent 55%),
+    linear-gradient(145deg,#151515,#080808);
+  animation:staffHeaderFloat 4s ease-in-out infinite;
+}
+
+.staffHeader span{
+  display:block;
+  font-size:25px;
+  animation:staffSymbolPulse 2s ease-in-out infinite;
+}
+
+.staffHeader h2{
+  margin:7px 0 4px;
+  font-size:22px;
+  letter-spacing:2px;
+}
+
+.staffHeader p{
+  margin:0;
+  color:#777;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.staffGrid{
+  display:grid;
+  gap:14px;
+}
+
+.staffCard{
+  position:relative;
+  overflow:hidden;
+  padding:22px 18px;
+  min-height:125px;
+  border-radius:18px;
+  border:1px solid #292929;
+  text-align:center;
+  transition:.35s ease;
+}
+
+.staffCard:hover{
+  transform:translateY(-5px);
+}
+
+.staffSymbol{
+  font-size:30px;
+  margin-bottom:4px;
+  animation:staffSymbolPulse 2s ease-in-out infinite;
+}
+
+.staffRole{
+  display:block;
+  font-size:10px;
+  letter-spacing:3px;
+  color:#777;
+  margin-bottom:6px;
+}
+
+.staffCard h3{
+  margin:0;
+  font-size:18px;
+  letter-spacing:1px;
+}
+
+/* ===== CEO ===== */
+
+.ceoCard{
+  background:
+    radial-gradient(circle at 50% 120%,rgba(227,38,46,.28),transparent 55%),
+    linear-gradient(135deg,#190a0b,#0b0b0b,#22090b);
+  border-color:#5b2024;
+  animation:ceoGlow 3s ease-in-out infinite;
+}
+
+.ceoCard .staffSymbol{
+  color:#e3262e;
+  text-shadow:0 0 15px rgba(227,38,46,.8);
+}
+
+/* ===== VICE 1 ===== */
+
+.viceCard{
+  background:
+    radial-gradient(circle at 0% 100%,rgba(130,130,130,.15),transparent 50%),
+    linear-gradient(145deg,#171717,#080808,#111111);
+}
+
+.viceCard .staffSymbol{
+  color:#ddd;
+  animation:vicePulse 2.5s ease-in-out infinite;
+}
+
+/* ===== VICE 2 ===== */
+
+.viceCard2{
+  background:
+    radial-gradient(circle at 100% 0%,rgba(227,38,46,.13),transparent 50%),
+    linear-gradient(145deg,#101010,#171717,#090909);
+}
+
+.viceCard2 .staffSymbol{
+  color:#aaa;
+  animation:viceRotate 4s linear infinite;
+}
+
+.staffLine{
+  width:55px;
+  height:2px;
+  margin:12px auto 0;
+  background:#e3262e;
+  box-shadow:0 0 10px #e3262e;
+  border-radius:10px;
+}
+
+/* ===== ANIMAÇÕES ===== */
+
+@keyframes staffHeaderFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-3px);
+  }
+}
+
+@keyframes staffSymbolPulse{
+  0%,100%{
+    transform:scale(1);
+    opacity:.8;
+  }
+  50%{
+    transform:scale(1.12);
+    opacity:1;
+  }
+}
+
+@keyframes ceoGlow{
+  0%,100%{
+    box-shadow:0 0 10px rgba(227,38,46,.05);
+  }
+  50%{
+    box-shadow:0 0 28px rgba(227,38,46,.18);
+  }
+}
+
+@keyframes vicePulse{
+  0%,100%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.08);
+  }
+}
+
+@keyframes viceRotate{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@media(max-width:700px){
+
+  #staff{
+    padding:10px;
+  }
+
+  .staffCard{
+    min-height:115px;
+  }
+
+  .staffCard h3{
+    font-size:17px;
+  }
+
+}
 </style>
 </head>
 <body>
