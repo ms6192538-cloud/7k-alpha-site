@@ -1884,8 +1884,264 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
     }
 
 }
+  /* ===== PAINEL CONFIGURAÇÕES ===== */
+
+.configMenu {
+    position: fixed;
+
+    top: 90px;
+    right: 18px;
+
+    width: 330px;
+    max-width: calc(100% - 36px);
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #c4c8cc,
+            #f8f8f8,
+            #aeb3b8
+        );
+
+    background-size: 300% 300%;
+
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35),
+        0 0 20px rgba(255,255,255,.15);
+
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(-12px)
+        scale(.96);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+
+    animation: configMetal 8s ease-in-out infinite;
+}
+
+.configMenu.open {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* cabeçalho */
+
+.configHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding-bottom: 15px;
+
+    border-bottom:
+        1px solid rgba(0,0,0,.15);
+}
+
+.configHeader > span {
+    font-size: 27px;
+
+    animation:
+        gearRotate 4s linear infinite;
+}
+
+.configHeader strong {
+    display: block;
+
+    color: #111;
+
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.configHeader small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #555;
+
+    font-size: 11px;
+}
+
+.configHeader button {
+    margin-left: auto;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    background: rgba(0,0,0,.12);
+    color: #111;
+
+    font-size: 15px;
+}
+
+
+/* opções */
+
+.configOptions {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin-top: 15px;
+}
+
+.configOptions button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    color: #111;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.configOptions button:hover {
+    transform: translateX(4px);
+
+    background:
+        rgba(255,255,255,.85);
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,.45);
+}
+
+.configOptions button > :first-child {
+    font-size: 21px;
+}
+
+.configOptions strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+.configOptions small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #666;
+
+    font-size: 10px;
+}
+
+
+/* engrenagem girando */
+
+@keyframes gearRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* celular */
+
+@media (max-width: 700px) {
+
+    .configMenu {
+        top: 75px;
+        right: 10px;
+        left: 10px;
+
+        width: auto;
+        max-width: none;
+    }
+
+  }
 </style>
 </head>
+  <script>
+/* ===== MENU CONFIGURAÇÕES ===== */
+
+function toggleConfig() {
+
+    const menu = document.getElementById("configMenu");
+
+    if (!menu) return;
+
+    menu.classList.toggle("open");
+
+}
+
+
+/* abre uma área da configuração */
+
+function openConfigPage(page) {
+
+    toggleConfig();
+
+    if (page === "regras") {
+        show("avisos");
+    }
+
+    if (page === "requisitos") {
+        show("recrutamento");
+    }
+
+    if (page === "estatisticas") {
+        show("estatisticas");
+    }
+
+    if (page === "guerra") {
+        show("guerra");
+    }
+
+    if (page === "salas") {
+        show("salas");
+    }
+
+}
+  </script>
 <body>
 <header>
   <div class="logo">7K <b>ALPHA</b></div>
@@ -1915,7 +2171,70 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
 
   </nav>
 </header>
+<!-- ===== MENU DE CONFIGURAÇÕES ===== -->
 
+<div id="configMenu" class="configMenu">
+
+    <div class="configHeader">
+        <span>⚙️</span>
+        <div>
+            <strong>CONFIGURAÇÕES</strong>
+            <small>Central OFC • 7K ALPHA</small>
+        </div>
+
+        <button onclick="toggleConfig()">✕</button>
+    </div>
+
+
+    <div class="configOptions">
+
+        <button onclick="openConfigPage('regras')">
+            📜
+            <span>
+                <strong>Regras da Guilda</strong>
+                <small>Regras e punições</small>
+            </span>
+        </button>
+
+
+        <button onclick="openConfigPage('requisitos')">
+            📋
+            <span>
+                <strong>Requisitos</strong>
+                <small>Requisitos para entrar na 7K ALPHA</small>
+            </span>
+        </button>
+
+
+        <button onclick="openConfigPage('estatisticas')">
+            📊
+            <span>
+                <strong>Estatísticas</strong>
+                <small>Informações e desempenho da guilda</small>
+            </span>
+        </button>
+
+
+        <button onclick="openConfigPage('guerra')">
+            ⚔️
+            <span>
+                <strong>Guerra de Guilda</strong>
+                <small>Participação e pontuação</small>
+            </span>
+        </button>
+
+
+        <button onclick="openConfigPage('salas')">
+            🎮
+            <span>
+                <strong>Salas</strong>
+                <small>2x2 e 4x4</small>
+            </span>
+        </button>
+
+    </div>
+
+</div>
 <main>
 
 <section id="inicio" class="page active">
