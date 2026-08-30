@@ -15,7 +15,92 @@ const supabaseClient = supabase.createClient(
 );
 </script>
 <style>
-  /* ===== 7K ALPHA • NOVA ORGANIZAÇÃO VISUAL ===== */
+  /* ===== 7K ALPHA • HOME PREMIUM ===== */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(230,35,46,.16), transparent 35%),
+    #080808;
+  color:#eee;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  background:rgba(12,12,12,.94);
+  border-bottom:1px solid #252525;
+  padding:18px 16px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(12px);
+}
+
+.logo{
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.logo b{
+  color:#e3262e;
+}
+
+.sub{
+  color:#888;
+  font-size:12px;
+  margin-top:5px;
+  letter-spacing:1px;
+}
+
+/* ===== MENU ===== */
+
+nav{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:10px 12px;
+  background:#0d0d0d;
+  border-bottom:1px solid #222;
+}
+
+nav::-webkit-scrollbar{
+  display:none;
+}
+
+nav button{
+  flex:0 0 auto;
+  border:1px solid #292929;
+  background:#151515;
+  color:#ddd;
+  padding:11px 16px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:700;
+  transition:.25s;
+}
+
+nav button:hover,
+nav button.active{
+  background:#e3262e;
+  color:#fff;
+  border-color:#e3262e;
+  transform:translateY(-2px);
+  box-shadow:0 7px 22px rgba(227,38,46,.25);
+}
+
+/* ===== CONTEÚDO ===== */
 
 main{
   max-width:1200px;
@@ -23,124 +108,291 @@ main{
   padding:18px;
 }
 
-/* COLUNA DOS INDICADORES */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-top:16px;
+.page{
+  display:none;
 }
 
-.cards .card{
-  min-height:105px;
+.page.active{
+  display:block;
+  animation:pageIn .45s ease;
+}
+
+@keyframes pageIn{
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== HERO ===== */
+
+.alphaHero{
+  position:relative;
+  min-height:250px;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
-  transition:.2s;
+  overflow:hidden;
+  border:1px solid #292929;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 100%,rgba(227,38,46,.28),transparent 55%),
+    linear-gradient(135deg,#111,#080808 60%,#260b0e);
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
 }
 
-.cards .card:hover{
-  transform:translateY(-2px);
-  border-color:#e3262e;
+.alphaHero:before{
+  content:"";
+  position:absolute;
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  background:rgba(227,38,46,.12);
+  filter:blur(45px);
+  animation:pulseRed 3s infinite alternate;
 }
 
-/* NÚMEROS */
-.cards .num{
-  font-size:28px;
+@keyframes pulseRed{
+  from{
+    transform:scale(.8);
+    opacity:.35;
+  }
+  to{
+    transform:scale(1.25);
+    opacity:.8;
+  }
+}
+
+.alphaHero > *{
+  position:relative;
+  z-index:2;
+}
+
+.alphaEyebrow{
+  color:#888;
+  font-size:12px;
+  letter-spacing:4px;
+  margin-bottom:8px;
+}
+
+.alphaHero h1{
+  margin:0;
+  font-size:48px;
   font-weight:900;
-  color:#fff;
-  margin-bottom:6px;
+  letter-spacing:3px;
 }
 
-.cards .small{
-  font-size:11px;
-  letter-spacing:1px;
+.alphaHero h1 span{
+  color:#e3262e;
+  text-shadow:0 0 25px rgba(227,38,46,.55);
 }
 
-/* PAINÉIS */
-.panel{
-  margin-top:16px;
+#welcome{
+  color:#aaa;
+  font-size:13px;
+  margin-top:10px;
+}
+
+/* ===== LIDERANÇA ===== */
+
+.homeLeadership{
+  margin-top:18px;
   padding:18px;
+  border:1px solid #252525;
+  border-radius:18px;
+  background:#101010;
 }
 
-/* LIDERANÇA */
-.rolebox{
+.leadTitle{
+  text-align:center;
+  font-weight:900;
+  letter-spacing:1px;
+  margin-bottom:16px;
+}
+
+.leadProfiles{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
-  margin-top:12px;
 }
 
-.rolebox .card{
-  padding:18px 12px;
+.leadProfile{
+  position:relative;
+  overflow:hidden;
+  padding:18px 10px;
   text-align:center;
-  min-height:90px;
+  border:1px solid #292929;
+  border-radius:16px;
+  background:linear-gradient(145deg,#151515,#0c0c0c);
+  transition:.3s;
+}
+
+.leadProfile:hover{
+  transform:translateY(-5px);
+  border-color:#e3262e;
+  box-shadow:0 12px 35px rgba(227,38,46,.18);
+}
+
+.rankSymbol{
+  font-size:27px;
+  margin-bottom:8px;
+  animation:floatRank 2.5s ease-in-out infinite;
+}
+
+@keyframes floatRank{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+
+.leadRole{
+  color:#e3262e;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.leadName{
+  font-size:18px;
+  font-weight:900;
+  margin-top:5px;
+}
+
+.leadDesc{
+  color:#777;
+  font-size:11px;
+  margin-top:5px;
+}
+
+/* ===== ACESSOS PRINCIPAIS ===== */
+
+.homeActions{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.homeAction{
+  cursor:pointer;
+  min-height:105px;
+  padding:16px;
   display:flex;
   flex-direction:column;
+  align-items:center;
   justify-content:center;
+  text-align:center;
+  border:1px solid #292929;
+  border-radius:16px;
+  background:#111;
+  transition:.3s;
 }
 
-.rolebox .card b{
-  font-size:17px;
-  margin-top:8px;
+.homeAction:hover{
+  transform:translateY(-5px);
+  border-color:#e3262e;
+  background:#151010;
+  box-shadow:0 12px 30px rgba(227,38,46,.16);
 }
 
-/* FORMULÁRIOS EM COLUNAS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
+.homeAction .ico{
+  font-size:28px;
+  margin-bottom:8px;
+  animation:iconFloat 2.8s ease-in-out infinite;
 }
 
-/* AVISOS */
-.notice{
-  margin:10px 0;
-  padding:13px 14px;
-  border-left:3px solid #e3262e;
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
 }
 
-/* BOTÕES */
-.btn{
-  transition:.2s;
+.homeAction b{
+  font-size:14px;
 }
 
-.btn:hover{
-  filter:brightness(1.12);
-  transform:translateY(-1px);
+.homeAction span{
+  color:#777;
+  font-size:10px;
+  margin-top:4px;
 }
 
-/* CELULAR */
+/* ===== RODAPÉ DA HOME ===== */
+
+.homeMinimal{
+  text-align:center;
+  margin:22px 0 5px;
+  color:#555;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.homeMinimal b{
+  color:#777;
+}
+
+/* ===== PAINÉIS DAS OUTRAS PÁGINAS ===== */
+
+.panel{
+  margin-top:16px;
+  padding:18px;
+  border:1px solid #292929;
+  border-radius:16px;
+  background:#101010;
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+/* ===== RESPONSIVO ===== */
+
 @media(max-width:700px){
 
   main{
     padding:12px;
   }
 
-  .cards{
+  header{
+    padding:16px 12px;
+  }
+
+  .logo{
+    font-size:27px;
+  }
+
+  nav{
+    padding:9px 8px;
+  }
+
+  nav button{
+    padding:10px 14px;
+  }
+
+  .alphaHero{
+    min-height:210px;
+  }
+
+  .alphaHero h1{
+    font-size:38px;
+  }
+
+  .leadProfiles{
+    grid-template-columns:1fr;
+  }
+
+  .leadProfile{
+    min-height:90px;
+  }
+
+  .homeActions{
     grid-template-columns:repeat(2,1fr);
     gap:10px;
   }
 
-  .cards .card{
-    min-height:90px;
-  }
-
-  .cards .num{
-    font-size:23px;
-  }
-
-  .rolebox{
-    grid-template-columns:1fr;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .panel{
-    padding:14px;
+  .homeAction{
+    min-height:95px;
   }
 }
 *{box-sizing:border-box}body{margin:0;background:#080808;color:#eee;font:14px Arial,sans-serif}header{background:#101010;border-bottom:1px solid #292929;padding:18px;position:sticky;top:0;z-index:5}.logo{font-size:25px;font-weight:900;letter-spacing:2px}.logo b{color:#e3262e}.sub{color:#888;font-size:11px;margin-top:4px}
