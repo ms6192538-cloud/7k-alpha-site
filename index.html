@@ -100,7 +100,43 @@ function delMember(i){if(confirm('Excluir este membro?')){d.members.splice(i,1);
 function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)return;d.notices.push({text:t});noticeText.value='';save();toast('📢 Publicado')}
 function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
-function submitRecruit(){let n=rn.value.trim();if(!n)return alert('Informe seu nick/nome.');d.leads.push({name:n,id:rid.value,age:rage.value,role:rrole.value,avail:rav.value,call:rcall.value,msg:rmsg.value,date:new Date().toLocaleString('pt-BR')});save();toast('✅ Formulário enviado! Aguarde as próximas etapas.');['rn','rid','rage','rav','rmsg'].forEach(id=>document.getElementById(id).value='');}
-render();
+async function submitRecruit(){
+  const nick = document.getElementById('rn').value.trim();
+  const idade = document.getElementById('age').value;
+  const funcao = document.getElementById('role').value;
+  const call = document.getElementById('call').value;
+  const mensagem = document.getElementById('rmsg').value.trim();
+
+  if(!nick || !idade || !funcao){
+    alert('⚠️ Preencha todos os campos obrigatórios!');
+    return;
+  }
+
+  const { error } = await supabaseClient
+    .from('Recrutamento')
+    .insert([{
+      nick: nick,
+      idade: Number(idade),
+      funcao: funcao,
+      call: call,
+      whatsapp: call,
+      mensagem: mensagem,
+      data: new Date().toISOString()
+    }]);
+
+  if(error){
+    console.error(error);
+    alert('❌ Erro ao enviar o recrutamento.');
+    return;
+  }
+
+  alert('✅ Formulário enviado! Aguarde um ADM chamar você.');
+
+  ['rn','age','rmsg'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+
+  document.getElementById('role').selectedIndex = 0;
+}
 </script>
 </body></html>
