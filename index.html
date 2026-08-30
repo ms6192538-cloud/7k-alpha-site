@@ -2523,6 +2523,28 @@ async function submitRecruit(){
   document.getElementById('role').selectedIndex = 0;
   document.getElementById('call').selectedIndex = 0;
 }
+  function mostrarNotificacaoRecrutamento(recruta) {
+  alert(
+    '🔔 NOVO RECRUTAMENTO!\n\n' +
+    'Um recruta acabou de enviar um formulário.\n\n' +
+    '👤 Nick: ' + recruta.name
+  );
+  }
+const recruitChannel = supabaseClient
+  .channel('novos-recrutamentos')
+  .on(
+    'postgres_changes',
+    {
+      event: 'INSERT',
+      schema: 'public',
+      table: 'recruitments'
+    },
+    (payload) => {
+      console.log('NOVO RECRUTAMENTO:', payload.new);
 
+      mostrarNotificacaoRecrutamento(payload.new);
+    }
+  )
+  .subscribe();
 </script>
 </body></html>
