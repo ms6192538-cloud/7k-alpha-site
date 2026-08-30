@@ -838,32 +838,91 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
 
 /* ===== CELULAR ===== */
 
+ /* ===== 7K ALPHA • RECRUTAMENTO RESPONSIVO ===== */
+
+#recrutamento{
+  display:none;
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box;
+  margin:0 auto;
+}
+
+#recrutamento.active{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  grid-column:1 / -1 !important;
+}
+
+#recrutamento .backRow{
+  width:100%;
+  margin-bottom:12px;
+}
+
+#recrutamento .panel{
+  width:100% !important;
+  max-width:850px;
+  margin:0 auto !important;
+  box-sizing:border-box;
+}
+
+#recrutamento .grid{
+  width:100%;
+  box-sizing:border-box;
+}
+
+/* ===== CELULAR / ANDROID ===== */
+
 @media(max-width:700px){
 
-  #inicio .alphaHero{
-    min-height:220px;
-    border-radius:18px;
+  main{
+    width:100% !important;
+    max-width:100% !important;
+    padding:12px !important;
+    box-sizing:border-box;
   }
 
-  #inicio .homeLeadership{
-    padding:14px;
+  #recrutamento{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
   }
 
-  #inicio .leadProfiles{
-    grid-template-columns:1fr;
+  #recrutamento.active{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
   }
 
-  #inicio .leadProfile{
-    min-height:90px;
+  #recrutamento .panel{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:14px !important;
+    box-sizing:border-box;
   }
 
-  #inicio .homeActions{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
+  #recrutamento .grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    gap:8px !important;
   }
 
-  #inicio .homeAction{
-    min-height:90px;
+  #recrutamento input,
+  #recrutamento select,
+  #recrutamento textarea{
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box;
+  }
+
+  #recrutamento .btn{
+    width:100%;
+    box-sizing:border-box;
+    text-align:center;
   }
 }
   /* ===== BANNER PRINCIPAL 7K ALPHA ===== */
