@@ -150,34 +150,5 @@ async function submitRecruit(){
   document.getElementById('call').selectedIndex = 0;
 }
 
-  const { data, error } = await supabaseClient
-  .from('Recrutamento')
-  .insert([{
-    nick: nick,
-    idade: Number(idade),
-    funcao: funcao,
-    call: call,
-    whatsapp: call,
-    mensagem: mensagem,
-    data: new Date().toISOString()
-  }])
-  .select();
-
-if (error) {
-  console.error('ERRO SUPABASE:', error);
-  alert('❌ ERRO SUPABASE:\n\n' + error.message);
-  return;
-}
-
-console.log('CADASTRO ENVIADO:', data);
-alert('✅ Formulário enviado com sucesso!');
-
-
-  ['rn','age','rmsg'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
-
-  document.getElementById('role').selectedIndex = 0;
-}
 </script>
 </body></html>
