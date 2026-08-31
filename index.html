@@ -2474,62 +2474,24 @@ function delMember(i){if(confirm('Excluir este membro?')){d.members.splice(i,1);
 function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)return;d.notices.push({text:t});noticeText.value='';save();toast('📢 Publicado')}
 function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
-async function submitRecruit(){
+async function submitRecruit() {
 
   const nick = document.getElementById('rn')?.value.trim() || '';
   const gameId = document.getElementById('rid')?.value.trim() || '';
-  const idade = document.getElementById('rage')?.value || '';
-  const funcao = document.getElementById('rrole')?.value || '';
+  const idade = document.getElementById('age')?.value || '';
+  const funcao = document.getElementById('role')?.value || '';
   const disponibilidade = document.getElementById('rav')?.value.trim() || '';
   const callWhatsapp = document.getElementById('rcall')?.value || '';
   const mensagem = document.getElementById('rmsg')?.value.trim() || '';
 
-  if (!nick || !gameId || !idade || !funcao) {
+  if (!nick || !gameId || !idade || !funcao || !disponibilidade || !callWhatsapp) {
     alert('⚠️ Preencha todos os campos obrigatórios do recrutamento.');
-    return;
-  }
-
-  const { data, error } = await supabaseClient
-    .from('recruitments')
-    .insert([{
-      name: nick,
-      game_id: gameId,
-      age: Number(idade),
-      role: funcao,
-      availability: disponibilidade,
-      call: callWhatsapp,
-      message: mensagem,
-      status: 'pending'
-    }])
-    .select();
-
-  if (error) {
-    console.error('Erro ao enviar recrutamento:', error);
-    alert('❌ Não foi possível enviar o formulário.\n\n' + error.message);
-    return;
-  }
-
-  alert('✅ Formulário enviado com sucesso!\n\nSeu recrutamento foi recebido pela 7K ALPHA.');
-
-}
-  alert('1️⃣ Função iniciou!');
-
-  const nick = document.getElementById('rn').value.trim();
-  const gameId = document.getElementById('rid').value.trim();
-  const idade = document.getElementById('age').value;
-  const funcao = document.getElementById('role').value;
-  const disponibilidade = document.getElementById('rav').value.trim();
-  const callWhatsapp = document.getElementById('rcall').value;
-  const mensagem = document.getElementById('rmsg').value.trim();
-
-  if(!nick || !gameId || !idade || !funcao || !disponibilidade || !callWhatsapp){
-    alert('⚠️ Preencha todos os campos obrigatórios!');
     return;
   }
 
   const possuiCall = callWhatsapp === 'Sim';
   const possuiWhatsapp = callWhatsapp === 'Sim';
-alert('2️⃣ Cheguei no envio para o Supabase!');
+
   const { data, error } = await supabaseClient
     .from('recruitments')
     .insert([{
@@ -2544,31 +2506,31 @@ alert('2️⃣ Cheguei no envio para o Supabase!');
       status: 'pending'
     }])
     .select();
-  alert('3️⃣ Supabase respondeu!');
 
-  if(error){
+  if (error) {
     console.error('ERRO SUPABASE:', error);
-    alert('❌ Erro ao enviar recrutamento:\n\n' + error.message);
+    alert('❌ Não foi possível enviar o formulário.\n\n' + error.message);
     return;
   }
 
   console.log('RECRUTAMENTO ENVIADO:', data);
-  alert('✅ Formulário enviado com sucesso!');
 
-  ['rn','rid','age','rav','rmsg'].forEach(id => {
-    document.getElementById(id).value = '';
+  alert(
+    '✅ Formulário enviado com sucesso!\n\n' +
+    'Seu recrutamento foi recebido pela 7K ALPHA. Aguarde a análise da equipe.'
+  );
+
+  ['rn', 'rid', 'age', 'rav', 'rmsg'].forEach(id => {
+    const elemento = document.getElementById(id);
+    if (elemento) elemento.value = '';
   });
 
-  document.getElementById('role').selectedIndex = 0;
-  document.getElementById('rcall').selectedIndex = 0;
+  const role = document.getElementById('role');
+  if (role) role.selectedIndex = 0;
+
+  const call = document.getElementById('rcall');
+  if (call) call.selectedIndex = 0;
 }
-  function mostrarNotificacaoRecrutamento(recruta) {
-  alert(
-    '🔔 NOVO RECRUTAMENTO!\n\n' +
-    'Um recruta acabou de enviar um formulário.\n\n' +
-    '👤 Nick: ' + recruta.name
-  );
-  }
 const recruitChannel = supabaseClient
   .channel('novos-recrutamentos')
   .on(
