@@ -2354,6 +2354,487 @@ if (page === "staff") {
     show("staff");
 }
 }
+ /* =========================================
+   RECRUTAMENTO PREMIUM
+========================================= */
+
+.recruitPremium {
+  position: relative;
+
+  margin: 20px 0;
+  padding: 22px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255,20,50,.18),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #111,
+      #171717,
+      #0b0b0b
+    );
+
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.45),
+    inset 0 0 35px rgba(255,255,255,.025);
+}
+
+.recruitPremium::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  top: -120px;
+  right: -80px;
+
+  background: rgba(255,0,45,.16);
+
+  filter: blur(70px);
+
+  animation: recruitGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes recruitGlow {
+  from {
+    transform: translate(0,0);
+    opacity: .4;
+  }
+
+  to {
+    transform: translate(-80px,80px);
+    opacity: .9;
+  }
+}
+
+
+/* CABEÇALHO */
+
+.recruitHeader {
+  position: relative;
+
+  text-align: center;
+
+  padding: 15px 5px 25px;
+
+  overflow: hidden;
+}
+
+.recruitLight {
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255,255,255,.14),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  animation: recruitMetal 4.5s linear infinite;
+}
+
+@keyframes recruitMetal {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 140%;
+  }
+}
+
+.recruitMini {
+  position: relative;
+  z-index: 2;
+
+  color: #aaa;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+}
+
+.recruitHeader h2 {
+  position: relative;
+  z-index: 2;
+
+  margin: 12px 0 7px;
+
+  color: #fff;
+
+  font-size: 28px;
+
+  letter-spacing: 1px;
+
+  font-weight: 900;
+}
+
+.recruitHeader h2 span {
+  display: block;
+
+  background: linear-gradient(
+    90deg,
+    #fff,
+    #ffb8c1,
+    #fff,
+    #777,
+    #fff
+  );
+
+  background-size: 300%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: premiumText 4s linear infinite;
+}
+
+@keyframes premiumText {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 300%;
+  }
+}
+
+.recruitHeader p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+/* AVISO */
+
+.recruitNotice {
+  position: relative;
+
+  margin: 12px 0 20px;
+  padding: 16px;
+
+  background: rgba(255,255,255,.035);
+
+  border-left: 3px solid #ed1d32;
+
+  border-radius: 12px;
+}
+
+.recruitNotice strong {
+  color: #fff;
+}
+
+.recruitNotice p {
+  color: #999;
+
+  font-size: 13px;
+
+  margin: 7px 0 0;
+}
+
+
+/* CAMPOS */
+
+.recruitField {
+  margin-bottom: 17px;
+}
+
+.recruitField label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #ddd;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.recruitField input,
+.recruitField select,
+.recruitField textarea,
+.communicationItem select,
+.dayBox select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px;
+
+  color: #fff;
+
+  background: #0b0b0b;
+
+  border: 1px solid #292929;
+
+  border-radius: 13px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition: .3s;
+}
+
+.recruitField input:focus,
+.recruitField select:focus,
+.recruitField textarea:focus,
+.dayBox select:focus {
+  border-color: #e92338;
+
+  box-shadow:
+    0 0 0 3px rgba(233,35,56,.10),
+    0 0 20px rgba(233,35,56,.08);
+}
+
+.recruitField textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+
+/* COMUNICAÇÃO */
+
+.communicationBox,
+.scheduleBox {
+  position: relative;
+
+  margin: 22px 0;
+  padding: 18px;
+
+  background: rgba(255,255,255,.025);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 18px;
+}
+
+.boxTitle {
+  color: #fff;
+
+  font-size: 16px;
+
+  font-weight: 900;
+
+  letter-spacing: .8px;
+
+  margin-bottom: 5px;
+}
+
+.communicationBox > p,
+.scheduleBox > p {
+  color: #888;
+
+  font-size: 12px;
+
+  margin: 0 0 16px;
+}
+
+.communicationItem {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding: 13px 0;
+
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.communicationItem > span {
+  color: #ddd;
+
+  font-size: 13px;
+}
+
+.choiceGroup {
+  display: flex;
+  gap: 7px;
+}
+
+.choiceGroup label {
+  position: relative;
+}
+
+.choiceGroup input {
+  display: none;
+}
+
+.choiceGroup label span {
+  display: block;
+
+  padding: 8px 12px;
+
+  border-radius: 10px;
+
+  border: 1px solid #333;
+
+  background: #111;
+
+  color: #888;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.choiceGroup input:checked + span {
+  color: #fff;
+
+  background: linear-gradient(
+    135deg,
+    #e92338,
+    #7b0d1a
+  );
+
+  border-color: #ff334b;
+
+  box-shadow:
+    0 0 15px rgba(233,35,56,.2);
+}
+
+
+/* HORÁRIOS */
+
+.dayBox {
+  padding: 15px;
+
+  margin-top: 12px;
+
+  background: #0b0b0b;
+
+  border: 1px solid #242424;
+
+  border-radius: 15px;
+}
+
+.dayTitle {
+  color: #fff;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  margin-bottom: 13px;
+}
+
+.timeRow {
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: end;
+
+  gap: 8px;
+}
+
+.timeRow label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #777;
+
+  font-size: 11px;
+}
+
+.timeArrow {
+  color: #ed1d32;
+
+  font-size: 20px;
+
+  padding-bottom: 10px;
+}
+
+
+/* BOTÃO */
+
+.recruitSubmit {
+  position: relative;
+
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  color: #fff;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  background:
+    linear-gradient(
+      110deg,
+      #a80d1e,
+      #ed1d32,
+      #ff5868,
+      #ed1d32,
+      #a80d1e
+    );
+
+  background-size: 300%;
+
+  box-shadow:
+    0 10px 30px rgba(237,29,50,.22);
+
+  cursor: pointer;
+
+  animation: buttonMetal 4s linear infinite;
+
+  transition: .25s;
+}
+
+@keyframes buttonMetal {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 300%;
+  }
+}
+
+.recruitSubmit:active {
+  transform: scale(.97);
+    } 
   </script>
 <body>
 <header>
@@ -2459,12 +2940,336 @@ if (page === "staff") {
 </a> 
 </section>
 
-<section id="recrutamento" class="page"><div class="panel"><h2>📝 Recrutamento 7K ALPHA</h2><p class="muted">Preencha com atenção. Use os campos abaixo para escrever suas informações ✍️. Depois, entre no grupo e aguarde a liderança orientar as próximas etapas.</p>
-<div class="grid"><div><label>✍️ Nick / Nome</label><input class="input" id="rn" placeholder="Digite seu nick"></div><div><label>🎮 ID do jogo</label><input class="input" id="rid" inputmode="numeric" placeholder="Digite seu ID"></div><div><label>🔞Idade</label><input class="input" id="rage" type="number"></div><div><label>🎯 Função</label><select class="input" id="rrole"><option>Rush</option><option>Full Gás</option><option>Curandeiro</option></select></div></div>
-<label>🕐 Disponibilidade para GG</label><input class="input" id="rav" placeholder="Ex.: sexta, 19h às 22h">
-<label>🎙️ Possui call e WhatsApp?</label><select class="input" id="rcall"><option>Sim</option><option>Não</option></select>
-<label>🖊️ Conte um pouco sobre você / observações</label><textarea class="input" id="rmsg" rows="5" placeholder="Escreva aqui..."></textarea>
-<button class="btn" onclick="submitRecruit()">ENVIAR FORMULÁRIO</button></div></section>
+<section id="recrutamento" class="page">
+
+  <div class="recruitPremium">
+
+    <!-- CABEÇALHO -->
+    <div class="recruitHeader">
+
+      <div class="recruitLight"></div>
+
+      <span class="recruitMini">
+        ⚡ CENTRO OFICIAL
+      </span>
+
+      <h2>
+        RECRUTAMENTO
+        <span>7K ALPHA</span>
+      </h2>
+
+      <p>
+        Seleção oficial de jogadores para a 7K ALPHA
+      </p>
+
+    </div>
+
+
+    <!-- INFORMAÇÕES -->
+    <div class="recruitNotice">
+
+      <strong>📋 PREENCHE COM ATENÇÃO</strong>
+
+      <p>
+        Informe seus dados corretamente.
+        Após enviar, aguarde a liderança para as próximas etapas.
+      </p>
+
+    </div>
+
+
+    <!-- NICK -->
+    <div class="recruitField">
+
+      <label>👤 Nick / Nome</label>
+
+      <input
+        id="rn"
+        type="text"
+        placeholder="Digite seu nick"
+      >
+
+    </div>
+
+
+    <!-- ID -->
+    <div class="recruitField">
+
+      <label>🎮 ID do jogo</label>
+
+      <input
+        id="rid"
+        type="text"
+        placeholder="Digite seu ID"
+      >
+
+    </div>
+
+
+    <!-- IDADE -->
+    <div class="recruitField">
+
+      <label>🔞 Idade</label>
+
+      <input
+        id="idade"
+        type="number"
+        min="14"
+        max="99"
+        placeholder="Digite sua idade"
+      >
+
+    </div>
+
+
+    <!-- FUNÇÃO -->
+    <div class="recruitField">
+
+      <label>🎯 Função</label>
+
+      <select id="funcao">
+
+        <option value="Rush">🔥 Rush</option>
+
+        <option value="Full Gás">⚡ Full Gás</option>
+
+        <option value="Curandeiro">💚 Curandeiro</option>
+
+        <option value="Rush + Curandeiro">
+          🔥💚 Rush + Curandeiro
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- COMUNICAÇÃO -->
+    <div class="communicationBox">
+
+      <div class="boxTitle">
+        🎙️ COMUNICAÇÃO
+      </div>
+
+      <p>
+        Precisamos saber se você possui os meios de comunicação.
+      </p>
+
+
+      <div class="communicationItem">
+
+        <span>🎙️ Possui Call?</span>
+
+        <div class="choiceGroup">
+
+          <label>
+            <input
+              type="radio"
+              name="call"
+              value="Sim"
+              checked
+            >
+            <span>SIM</span>
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="call"
+              value="Não"
+            >
+            <span>NÃO</span>
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="communicationItem">
+
+        <span>📱 Possui WhatsApp?</span>
+
+        <div class="choiceGroup">
+
+          <label>
+            <input
+              type="radio"
+              name="whatsapp"
+              value="Sim"
+              checked
+            >
+            <span>SIM</span>
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="whatsapp"
+              value="Não"
+            >
+            <span>NÃO</span>
+          </label>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- HORÁRIOS -->
+    <div class="scheduleBox">
+
+      <div class="boxTitle">
+        🕐 DISPONIBILIDADE PARA GG
+      </div>
+
+      <p>
+        Escolha separadamente seus horários de sexta e sábado.
+      </p>
+
+
+      <!-- SEXTA -->
+      <div class="dayBox">
+
+        <div class="dayTitle">
+          🔴 SEXTA-FEIRA
+        </div>
+
+        <div class="timeRow">
+
+          <div>
+            <label>Início</label>
+
+            <select id="sextaInicio">
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+            </select>
+
+          </div>
+
+
+          <span class="timeArrow">→</span>
+
+
+          <div>
+            <label>Até</label>
+
+            <select id="sextaFim">
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00" selected>22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+              <option value="00:00">00:00</option>
+            </select>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SÁBADO -->
+      <div class="dayBox">
+
+        <div class="dayTitle">
+          ⚫ SÁBADO
+        </div>
+
+        <div class="timeRow">
+
+          <div>
+            <label>Início</label>
+
+            <select id="sabadoInicio">
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+            </select>
+
+          </div>
+
+
+          <span class="timeArrow">→</span>
+
+
+          <div>
+            <label>Até</label>
+
+            <select id="sabadoFim">
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30" selected>23:30</option>
+              <option value="00:00">00:00</option>
+            </select>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- OBSERVAÇÕES -->
+    <div class="recruitField">
+
+      <label>📝 Conte um pouco sobre você</label>
+
+      <textarea
+        id="obs"
+        placeholder="Experiência, objetivo na guilda ou alguma observação..."
+      ></textarea>
+
+    </div>
+
+
+    <!-- BOTÃO -->
+    <button
+      class="recruitSubmit"
+      onclick="submitRecrutamento()"
+    >
+
+      <span>⚡ ENVIAR RECRUTAMENTO</span>
+
+    </button>
+
+  </div>
+
+</section>
 
 <section id="whatsapp" class="page"><div class="panel"><h2>💬 Grupo do WhatsApp para Recrutamento</h2><p class="muted">Entre no grupo oficial de recrutamento para acompanhar as próximas etapas.</p><div class="notice">⚠️ Entrar no grupo não significa aprovação. Após preencher o formulário, aguarde um ADM chamar você.</div><a class="btn" target="_blank" href="https://chat.whatsapp.com/EzlOuW6ad0V77AxGvEGz70?s=cl&p=a&mlu=4">ENTRAR NO GRUPO</a></div></section>
 
