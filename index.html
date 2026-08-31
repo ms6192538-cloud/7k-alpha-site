@@ -2175,7 +2175,141 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
         0 0 35px rgba(255,255,255,.14),
         inset 0 0 30px rgba(255,255,255,.06);
 }
-</style>
+  
+</s/* =========================================
+   WHATSAPP DA GUILDA
+========================================= */
+
+.whatsappGuild {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin: 18px 0;
+  padding: 20px 22px;
+
+  min-height: 82px;
+  box-sizing: border-box;
+
+  color: white;
+  text-decoration: none;
+
+  background:
+    radial-gradient(circle at 15% 50%, rgba(255,0,60,.18), transparent 35%),
+    linear-gradient(120deg, #101010, #242424, #101010);
+
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.35),
+    inset 0 0 25px rgba(255,255,255,.025);
+
+  transition: .35s ease;
+}
+
+.whatsappGuild:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,40,70,.5);
+
+  box-shadow:
+    0 15px 40px rgba(255,0,50,.12),
+    inset 0 0 30px rgba(255,255,255,.04);
+}
+
+.whatsappGuild:active {
+  transform: scale(.98);
+}
+
+.whatsappGlow {
+  position: absolute;
+  inset: -100%;
+
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255,255,255,.18) 48%,
+    rgba(255,255,255,.04) 52%,
+    transparent 65%
+  );
+
+  animation: metalPass 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes metalPass {
+  0% {
+    transform: translateX(-45%);
+  }
+
+  100% {
+    transform: translateX(45%);
+  }
+}
+
+.whatsappIcon {
+  position: relative;
+  z-index: 2;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #9d9d9d
+  );
+
+  font-size: 27px;
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,.12);
+}
+
+.whatsappInfo {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  flex: 1;
+}
+
+.whatsappInfo strong {
+  font-size: 17px;
+  letter-spacing: 1.2px;
+}
+
+.whatsappInfo small {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.whatsappArrow {
+  position: relative;
+  z-index: 2;
+
+  font-size: 38px;
+  color: #fff;
+
+  transition: .3s;
+}
+
+.whatsappGuild:hover .whatsappArrow {
+  transform: translateX(5px);
+  color: #ff263f;
+}tyle>
 </head>
   <script>
 /* ===== MENU CONFIGURAÇÕES ===== */
@@ -2306,6 +2440,23 @@ if (page === "staff") {
         </div>
     </div>
 </div>
+ <!-- WHATSAPP DA GUILDA -->
+<a
+  class="whatsappGuild"
+  href="javascript:void(0)"
+  onclick="abrirWhatsAppGuilda()"
+>
+  <div class="whatsappGlow"></div>
+
+  <div class="whatsappIcon">📱</div>
+
+  <div class="whatsappInfo">
+    <strong>WHATSAPP DA GUILDA</strong>
+    <small>Entre no grupo oficial da 7K ALPHA</small>
+  </div>
+
+  <div class="whatsappArrow">›</div>
+</a> 
 </section>
 
 <section id="recrutamento" class="page"><div class="panel"><h2>📝 Recrutamento 7K ALPHA</h2><p class="muted">Preencha com atenção. Use os campos abaixo para escrever suas informações ✍️. Depois, entre no grupo e aguarde a liderança orientar as próximas etapas.</p>
