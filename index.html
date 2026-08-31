@@ -2175,139 +2175,372 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
         0 0 35px rgba(255,255,255,.14),
         inset 0 0 30px rgba(255,255,255,.06);
 }
-  /* =========================================
-   WHATSAPP DA GUILDA
-========================================= */
+  /* =========================================================
+   WHATSAPP DA GUILDA — 7K ALPHA
+   ========================================================= */
 
 .whatsappGuild {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 
-  margin: 18px 0;
-  padding: 20px 22px;
+    width: 100%;
+    min-height: 86px;
+    padding: 18px 20px;
 
-  min-height: 82px;
-  box-sizing: border-box;
+    box-sizing: border-box;
 
-  color: white;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 
-  background:
-    radial-gradient(circle at 15% 50%, rgba(255,0,60,.18), transparent 35%),
-    linear-gradient(120deg, #101010, #242424, #101010);
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(37, 211, 102, .16),
+            transparent 38%
+        ),
+        linear-gradient(
+            120deg,
+            #0b0b0b,
+            #151515,
+            #242424,
+            #101010
+        );
 
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 22px;
 
-  overflow: hidden;
+    overflow: hidden;
 
-  box-shadow:
-    0 10px 35px rgba(0,0,0,.35),
-    inset 0 0 25px rgba(255,255,255,.025);
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.38),
+        inset 0 0 25px rgba(255,255,255,.025);
 
-  transition: .35s ease;
+    cursor: pointer;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
 }
 
-.whatsappGuild:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255,40,70,.5);
+/* Brilho passando pelo banner */
+.whatsappGuild::before {
+    content: "";
+    position: absolute;
 
-  box-shadow:
-    0 15px 40px rgba(255,0,50,.12),
-    inset 0 0 30px rgba(255,255,255,.04);
+    top: -30%;
+    left: -70%;
+
+    width: 45%;
+    height: 160%;
+
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255,255,255,.04),
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.04),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: whatsappMetal 4.5s linear infinite;
+
+    pointer-events: none;
 }
 
-.whatsappGuild:active {
-  transform: scale(.98);
+/* Brilho verde suave */
+.whatsappGuild::after {
+    content: "";
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    left: -80px;
+    top: -45px;
+
+    background: rgba(37,211,102,.10);
+
+    filter: blur(60px);
+
+    animation: whatsappGlowMove 5s ease-in-out infinite alternate;
+
+    pointer-events: none;
 }
+
+/* =========================================================
+   GLOW INTERNO
+   ========================================================= */
 
 .whatsappGlow {
-  position: absolute;
-  inset: -100%;
+    position: absolute;
 
-  background: linear-gradient(
-    110deg,
-    transparent 35%,
-    rgba(255,255,255,.18) 48%,
-    rgba(255,255,255,.04) 52%,
-    transparent 65%
-  );
+    inset: -100%;
 
-  animation: metalPass 4s linear infinite;
-  pointer-events: none;
+    background: linear-gradient(
+        110deg,
+        transparent 35%,
+        rgba(255,255,255,.05) 45%,
+        rgba(37,211,102,.10) 52%,
+        rgba(255,255,255,.03) 58%,
+        transparent 65%
+    );
+
+    animation: whatsappSweep 4s linear infinite;
+
+    pointer-events: none;
 }
 
-@keyframes metalPass {
-  0% {
-    transform: translateX(-45%);
-  }
-
-  100% {
-    transform: translateX(45%);
-  }
-}
+/* =========================================================
+   ÍCONE
+   ========================================================= */
 
 .whatsappIcon {
-  position: relative;
-  z-index: 2;
+    position: relative;
 
-  width: 52px;
-  height: 52px;
+    z-index: 2;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 52px;
+    height: 52px;
 
-  border-radius: 16px;
+    min-width: 52px;
 
-  background: linear-gradient(
-    145deg,
-    #ffffff,
-    #9d9d9d
-  );
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  font-size: 27px;
+    border-radius: 16px;
 
-  box-shadow:
-    0 0 20px rgba(255,255,255,.12);
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #d9d9d9
+        );
+
+    color: #25d366;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 0 20px rgba(37,211,102,.18),
+        inset 0 0 8px rgba(0,0,0,.08);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
+/* Pulso do ícone */
+.whatsappIcon::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: 19px;
+
+    border: 1px solid rgba(37,211,102,.35);
+
+    animation: whatsappPulse 2.2s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   INFORMAÇÕES
+   ========================================================= */
+
 .whatsappInfo {
-  position: relative;
-  z-index: 2;
+    position: relative;
 
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+    z-index: 2;
 
-  flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    flex: 1;
+
+    min-width: 0;
 }
 
 .whatsappInfo strong {
-  font-size: 17px;
-  letter-spacing: 1.2px;
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,.08);
 }
 
 .whatsappInfo small {
-  color: #aaa;
-  font-size: 13px;
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1.35;
 }
 
+/* =========================================================
+   SETA
+   ========================================================= */
+
 .whatsappArrow {
-  position: relative;
-  z-index: 2;
+    position: relative;
 
-  font-size: 38px;
-  color: #fff;
+    z-index: 2;
 
-  transition: .3s;
+    font-size: 34px;
+
+    color: #fff;
+
+    transition:
+        transform .3s ease,
+        color .3s ease;
+
+    text-shadow:
+        0 0 12px rgba(37,211,102,.15);
+}
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.whatsappGuild:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(37,211,102,.42);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.45),
+        0 0 25px rgba(37,211,102,.10),
+        inset 0 0 30px rgba(255,255,255,.035);
+}
+
+.whatsappGuild:hover .whatsappIcon {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 28px rgba(37,211,102,.30),
+        inset 0 0 8px rgba(0,0,0,.08);
 }
 
 .whatsappGuild:hover .whatsappArrow {
-  transform: translateX(5px);
-  color: #ff263f;
+    transform: translateX(6px);
+
+    color: #25d366;
+}
+
+/* Clique */
+.whatsappGuild:active {
+    transform: scale(.98);
+}
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+@keyframes whatsappMetal {
+
+    0% {
+        left: -70%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+@keyframes whatsappSweep {
+
+    0% {
+        transform: translateX(-45%);
+    }
+
+    100% {
+        transform: translateX(45%);
+    }
+}
+
+@keyframes whatsappGlowMove {
+
+    0% {
+        transform: translate(0, 0);
+        opacity: .35;
+    }
+
+    100% {
+        transform: translate(90px, 35px);
+        opacity: .85;
+    }
+}
+
+@keyframes whatsappPulse {
+
+    0%,
+    100% {
+        transform: scale(.96);
+        opacity: .25;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: .75;
+    }
+}
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .whatsappGuild {
+        min-height: 80px;
+
+        padding: 15px 16px;
+
+        gap: 13px;
+
+        border-radius: 19px;
+    }
+
+    .whatsappIcon {
+        width: 48px;
+        height: 48px;
+
+        min-width: 48px;
+
+        font-size: 24px;
+
+        border-radius: 14px;
+    }
+
+    .whatsappInfo strong {
+        font-size: 15px;
+
+        letter-spacing: .8px;
+    }
+
+    .whatsappInfo small {
+        font-size: 12px;
+    }
+
+    .whatsappArrow {
+        font-size: 29px;
+    }
+}
   /* =========================================
 RECRUTAMENTO PREMIUM
 ========================================= */
