@@ -2308,7 +2308,861 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
 .whatsappGuild:hover .whatsappArrow {
   transform: translateX(5px);
   color: #ff263f;
-  
+  /* =========================================
+RECRUTAMENTO PREMIUM
+========================================= */
+
+.recruitPremium {
+position: relative;
+
+margin: 20px 0;
+padding: 22px;
+
+background:
+radial-gradient(
+circle at 50% 0%,
+rgba(255,20,50,.18),
+transparent 40%
+),
+linear-gradient(
+145deg,
+#111,
+#171717,
+#0b0b0b
+);
+
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 24px;
+
+overflow: hidden;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.45),
+inset 0 0 35px rgba(255,255,255,.025);
+}
+
+.recruitPremium::before {
+content: "";
+
+position: absolute;
+
+width: 220px;
+height: 220px;
+
+top: -120px;
+right: -80px;
+
+background: rgba(255,0,45,.16);
+
+filter: blur(70px);
+
+animation: recruitGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes recruitGlow {
+from {
+transform: translate(0,0);
+opacity: .4;
+}
+
+to {
+transform: translate(-80px,80px);
+opacity: .9;
+}
+}
+
+/* CABEÇALHO */
+
+.recruitHeader {
+position: relative;
+
+text-align: center;
+
+padding: 15px 5px 25px;
+
+overflow: hidden;
+}
+
+.recruitLight {
+position: absolute;
+
+top: 0;
+left: -100%;
+
+width: 70%;
+height: 100%;
+
+background: linear-gradient(
+100deg,
+transparent,
+rgba(255,255,255,.14),
+transparent
+);
+
+transform: skewX(-20deg);
+
+animation: recruitMetal 4.5s linear infinite;
+}
+
+@keyframes recruitMetal {
+0% {
+left: -100%;
+}
+
+100% {
+left: 140%;
+}
+}
+
+.recruitMini {
+position: relative;
+z-index: 2;
+
+color: #aaa;
+
+font-size: 11px;
+
+letter-spacing: 3px;
+}
+
+.recruitHeader h2 {
+position: relative;
+z-index: 2;
+
+margin: 12px 0 7px;
+
+color: #fff;
+
+font-size: 28px;
+
+letter-spacing: 1px;
+
+font-weight: 900;
+}
+
+.recruitHeader h2 span {
+display: block;
+
+background: linear-gradient(
+90deg,
+#fff,
+#ffb8c1,
+#fff,
+#777,
+#fff
+);
+
+background-size: 300%;
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+animation: premiumText 4s linear infinite;
+}
+
+@keyframes premiumText {
+from {
+background-position: 0%;
+}
+
+to {
+background-position: 300%;
+}
+}
+
+.recruitHeader p {
+position: relative;
+z-index: 2;
+
+margin: 0;
+
+color: #888;
+
+font-size: 13px;
+}
+
+/* AVISO */
+
+.recruitNotice {
+position: relative;
+
+margin: 12px 0 20px;
+padding: 16px;
+
+background: rgba(255,255,255,.035);
+
+border-left: 3px solid #ed1d32;
+
+border-radius: 12px;
+}
+
+.recruitNotice strong {
+color: #fff;
+}
+
+.recruitNotice p {
+color: #999;
+
+font-size: 13px;
+
+margin: 7px 0 0;
+}
+
+/* CAMPOS */
+
+.recruitField {
+margin-bottom: 17px;
+}
+
+.recruitField label {
+display: block;
+
+margin-bottom: 8px;
+
+color: #ddd;
+
+font-size: 14px;
+
+font-weight: 700;
+}
+
+.recruitField input,
+.recruitField select,
+.recruitField textarea,
+.communicationItem select,
+.dayBox select {
+width: 100%;
+
+box-sizing: border-box;
+
+padding: 14px;
+
+color: #fff;
+
+background: #0b0b0b;
+
+border: 1px solid #292929;
+
+border-radius: 13px;
+
+outline: none;
+
+font-size: 14px;
+
+transition: .3s;
+}
+
+.recruitField input:focus,
+.recruitField select:focus,
+.recruitField textarea:focus,
+.dayBox select:focus {
+border-color: #e92338;
+
+box-shadow:
+0 0 0 3px rgba(233,35,56,.10),
+0 0 20px rgba(233,35,56,.08);
+}
+
+.recruitField textarea {
+min-height: 120px;
+
+resize: vertical;
+}
+
+/* COMUNICAÇÃO */
+
+.communicationBox,
+.scheduleBox {
+position: relative;
+
+margin: 22px 0;
+padding: 18px;
+
+background: rgba(255,255,255,.025);
+
+border: 1px solid rgba(255,255,255,.08);
+
+border-radius: 18px;
+}
+
+.boxTitle {
+color: #fff;
+
+font-size: 16px;
+
+font-weight: 900;
+
+letter-spacing: .8px;
+
+margin-bottom: 5px;
+}
+
+.communicationBox > p,
+.scheduleBox > p {
+color: #888;
+
+font-size: 12px;
+
+margin: 0 0 16px;
+}
+
+.communicationItem {
+display: flex;
+
+align-items: center;
+justify-content: space-between;
+
+gap: 10px;
+
+padding: 13px 0;
+
+border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.communicationItem > span {
+color: #ddd;
+
+font-size: 13px;
+}
+
+.choiceGroup {
+display: flex;
+gap: 7px;
+}
+
+.choiceGroup label {
+position: relative;
+}
+
+.choiceGroup input {
+display: none;
+}
+
+.choiceGroup label span {
+display: block;
+
+padding: 8px 12px;
+
+border-radius: 10px;
+
+border: 1px solid #333;
+
+background: #111;
+
+color: #888;
+
+font-size: 11px;
+
+font-weight: 800;
+
+cursor: pointer;
+
+transition: .3s;
+}
+
+.choiceGroup input:checked + span {
+color: #fff;
+
+background: linear-gradient(
+135deg,
+#e92338,
+#7b0d1a
+);
+
+border-color: #ff334b;
+
+box-shadow:
+0 0 15px rgba(233,35,56,.2);
+}
+
+/* HORÁRIOS */
+
+.dayBox {
+padding: 15px;
+
+margin-top: 12px;
+
+background: #0b0b0b;
+
+border: 1px solid #242424;
+
+border-radius: 15px;
+}
+
+.dayTitle {
+color: #fff;
+
+font-size: 13px;
+
+font-weight: 900;
+
+margin-bottom: 13px;
+}
+
+.timeRow {
+display: grid;
+
+grid-template-columns: 1fr auto 1fr;
+
+align-items: end;
+
+gap: 8px;
+}
+
+.timeRow label {
+display: block;
+
+margin-bottom: 6px;
+
+color: #777;
+
+font-size: 11px;
+}
+
+.timeArrow {
+color: #ed1d32;
+
+font-size: 20px;
+
+padding-bottom: 10px;
+}
+
+/* BOTÃO */
+
+.recruitSubmit {
+position: relative;
+
+width: 100%;
+
+padding: 16px;
+
+border: none;
+
+border-radius: 15px;
+
+color: #fff;
+
+font-size: 14px;
+
+font-weight: 900;
+
+letter-spacing: 1px;
+
+background:
+linear-gradient(
+110deg,
+#a80d1e,
+#ed1d32,
+#ff5868,
+#ed1d32,
+#a80d1e
+);
+
+background-size: 300%;
+
+box-shadow:
+0 10px 30px rgba(237,29,50,.22);
+
+cursor: pointer;
+
+animation: buttonMetal 4s linear infinite;
+
+transition: .25s;
+}
+
+@keyframes buttonMetal {
+from {
+background-position: 0%;
+}
+
+to {
+background-position: 300%;
+}
+}
+
+.recruitSubmit:active {
+transform: scale(.97);
+}
+}tyle>
+
+</head>  
+  <script>  
+/* ===== MENU CONFIGURAÇÕES ===== */  function toggleConfig() {
+
+const menu = document.getElementById("configMenu");  
+
+if (!menu) return;  
+
+menu.classList.toggle("open");
+
+}
+
+/* abre uma área da configuração */
+
+function openConfigPage(page) {
+
+toggleConfig();  
+
+if (page === "regras") {  
+    show("avisos");  
+}  
+
+if (page === "requisitos") {  
+    show("recrutamento");  
+}  
+
+if (page === "estatisticas") {  
+    show("estatisticas");  
+}  
+
+if (page === "guerra") {  
+    show("guerra");  
+}  
+
+if (page === "salas") {  
+    show("salas");  
+}
+
+if (page === "staff") {
+show("staff");
+}
+}
+/* =========================================
+RECRUTAMENTO PREMIUM
+========================================= */
+
+.recruitPremium {
+position: relative;
+
+margin: 20px 0;
+padding: 22px;
+
+background:
+radial-gradient(
+circle at 50% 0%,
+rgba(255,20,50,.18),
+transparent 40%
+),
+linear-gradient(
+145deg,
+#111,
+#171717,
+#0b0b0b
+);
+
+border: 1px solid rgba(255,255,255,.12);
+border-radius: 24px;
+
+overflow: hidden;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.45),
+inset 0 0 35px rgba(255,255,255,.025);
+}
+
+.recruitPremium::before {
+content: "";
+
+position: absolute;
+
+width: 220px;
+height: 220px;
+
+top: -120px;
+right: -80px;
+
+background: rgba(255,0,45,.16);
+
+filter: blur(70px);
+
+animation: recruitGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes recruitGlow {
+from {
+transform: translate(0,0);
+opacity: .4;
+}
+
+to {
+transform: translate(-80px,80px);
+opacity: .9;
+}
+}
+
+/* CABEÇALHO */
+
+.recruitHeader {
+position: relative;
+
+text-align: center;
+
+padding: 15px 5px 25px;
+
+overflow: hidden;
+}
+
+.recruitLight {
+position: absolute;
+
+top: 0;
+left: -100%;
+
+width: 70%;
+height: 100%;
+
+background: linear-gradient(
+100deg,
+transparent,
+rgba(255,255,255,.14),
+transparent
+);
+
+transform: skewX(-20deg);
+
+animation: recruitMetal 4.5s linear infinite;
+}
+
+@keyframes recruitMetal {
+0% {
+left: -100%;
+}
+
+100% {
+left: 140%;
+}
+}
+
+.recruitMini {
+position: relative;
+z-index: 2;
+
+color: #aaa;
+
+font-size: 11px;
+
+letter-spacing: 3px;
+}
+
+.recruitHeader h2 {
+position: relative;
+z-index: 2;
+
+margin: 12px 0 7px;
+
+color: #fff;
+
+font-size: 28px;
+
+letter-spacing: 1px;
+
+font-weight: 900;
+}
+
+.recruitHeader h2 span {
+display: block;
+
+background: linear-gradient(
+90deg,
+#fff,
+#ffb8c1,
+#fff,
+#777,
+#fff
+);
+
+background-size: 300%;
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+animation: premiumText 4s linear infinite;
+}
+
+@keyframes premiumText {
+from {
+background-position: 0%;
+}
+
+to {
+background-position: 300%;
+}
+}
+
+.recruitHeader p {
+position: relative;
+z-index: 2;
+
+margin: 0;
+
+color: #888;
+
+font-size: 13px;
+}
+
+/* AVISO */
+
+.recruitNotice {
+position: relative;
+
+margin: 12px 0 20px;
+padding: 16px;
+
+background: rgba(255,255,255,.035);
+
+border-left: 3px solid #ed1d32;
+
+border-radius: 12px;
+}
+
+.recruitNotice strong {
+color: #fff;
+}
+
+.recruitNotice p {
+color: #999;
+
+font-size: 13px;
+
+margin: 7px 0 0;
+}
+
+/* CAMPOS */
+
+.recruitField {
+margin-bottom: 17px;
+}
+
+.recruitField label {
+display: block;
+
+margin-bottom: 8px;
+
+color: #ddd;
+
+font-size: 14px;
+
+font-weight: 700;
+}
+
+.recruitField input,
+.recruitField select,
+.recruitField textarea,
+.communicationItem select,
+.dayBox select {
+width: 100%;
+
+box-sizing: border-box;
+
+padding: 14px;
+
+color: #fff;
+
+background: #0b0b0b;
+
+border: 1px solid #292929;
+
+border-radius: 13px;
+
+outline: none;
+
+font-size: 14px;
+
+transition: .3s;
+}
+
+.recruitField input:focus,
+.recruitField select:focus,
+.recruitField textarea:focus,
+.dayBox select:focus {
+border-color: #e92338;
+
+box-shadow:
+0 0 0 3px rgba(233,35,56,.10),
+0 0 20px rgba(233,35,56,.08);
+}
+
+.recruitField textarea {
+min-height: 120px;
+
+resize: vertical;
+}
+
+/* COMUNICAÇÃO */
+
+.communicationBox,
+.scheduleBox {
+position: relative;
+
+margin: 22px 0;
+padding: 18px;
+
+background: rgba(255,255,255,.025);
+
+border: 1px solid rgba(255,255,255,.08);
+
+border-radius: 18px;
+}
+
+.boxTitle {
+color: #fff;
+
+font-size: 16px;
+
+font-weight: 900;
+
+letter-spacing: .8px;
+
+margin-bottom: 5px;
+}
+
+.communicationBox > p,
+.scheduleBox > p {
+color: #888;
+
+font-size: 12px;
+
+margin: 0 0 16px;
+}
+
+.communicationItem {
+display: flex;
+
+align-items: center;
+justify-content: space-between;
+
+gap: 10px;
+
+padding: 13px 0;
+
+border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.communicationItem > span {
+color: #ddd;
+
+font-size: 13px;
+}
+
+.choiceGroup {
+display: flex;
+gap: 7px;
+}
+
+.choiceGroup label {
+position: relative;
+}
+
+.choiceGroup input {
+display: none;
+}
+
+.choiceGroup label span {
+display: block;
+
+padding: 8px 12px;
+
+border-radius: 10px;
 </style>
 <body>
 <header>
