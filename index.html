@@ -2284,6 +2284,7 @@ if (page === "staff") {
 
 </section>
   <!-- ⚙️ CONFIGURAÇÕES DA GUILDA -->
+ <!-- ===== CONFIGURAÇÕES DA GUILDA ===== -->
 <section id="config" class="page">
 
     <div class="panel configPanel">
@@ -2291,99 +2292,36 @@ if (page === "staff") {
         <h2>⚙️ Configurações da 7K ALPHA</h2>
 
         <p class="muted">
-            Central de informações, regras, estatísticas e organização da guilda.
+            Central de organização e informações da guilda.
         </p>
 
-        <!-- 📜 REGRAS E REQUISITOS -->
-        <div class="configCard">
-            <h3>📜 Regras & Requisitos</h3>
+        <!-- ===== AVISOS & REGRAS ===== -->
+        <div class="configCard"
+             onclick="show('avisos', this)"
+             role="button"
+             tabindex="0">
 
-            <p><b>📋 Requisitos para entrar:</b></p>
-
-            <ul>
-                <li>🎮 Jogar a Guerra de Guilda é obrigatório.</li>
-                <li>📱 Estar no grupo do WhatsApp para participar de uma line.</li>
-                <li>🔞 Ter mais de 14 anos.</li>
-                <li>🎙️ Ter call.</li>
-                <li>🕐 Ter disponibilidade de horário à tarde ou à noite.</li>
-                <li>🤝 Saber respeitar os membros, staff e administradores.</li>
-            </ul>
-
-            <p><b>⚠️ Regras da guilda:</b></p>
-
-            <ul>
-                <li>📖 Ao entrar no grupo do WhatsApp e na comunidade da guilda, leia as regras.</li>
-                <li>🚨 Ao tomar 3 avisos, será expulso da guilda.</li>
-                <li>⚔️ Jogar outros modos durante a Guerra de Guilda resulta em expulsão.</li>
-                <li>🎮 Outros modos só poderão ser jogados caso não seja possível completar o time, somente para quem estiver solo e online.</li>
-            </ul>
-        </div>
-
-
-        <!-- 📊 ESTATÍSTICAS -->
-        <div class="configCard">
-            <h3>📊 Estatísticas da Guerra de Guilda</h3>
-
-            <p class="muted">
-                Área destinada ao acompanhamento dos jogadores e pontuação da Guerra de Guilda.
-            </p>
-
-            <div class="statsTable">
-
-                <div class="statsHeader">
-                    <span>👤 Nick</span>
-                    <span>🎮 Função</span>
-                    <span>🏆 Pontos</span>
-                </div>
-
-                <div class="statsRow">
-                    <span>Nenhum jogador registrado</span>
-                    <span>—</span>
-                    <span>0</span>
-                </div>
-
-            </div>
-        </div>
-
-
-        <!-- 🎯 SALAS -->
-        <div class="configCard">
-            <h3>🎯 Salas 2x2 / 4x4</h3>
-
-            <p class="muted">
-                Organização das salas e formação dos times.
-            </p>
-
-            <div class="roomBox">
-
-                <h4>🔥 Sala 2x2</h4>
-
-                <div class="team">
-                    <span>👤 Player 1</span>
-                    <span>👤 Player 2</span>
-                </div>
-
+            <div class="configCardIcon">
+                📢
             </div>
 
+            <div class="configCardInfo">
+                <h3>Avisos & Regras</h3>
 
-            <div class="roomBox">
+                <p>
+                    Avisos importantes, regras e informações da 7K ALPHA.
+                </p>
+            </div>
 
-                <h4>⚡ Sala 4x4</h4>
-
-                <div class="team">
-                    <span>👤 Player 1</span>
-                    <span>👤 Player 2</span>
-                    <span>👤 Player 3</span>
-                    <span>👤 Player 4</span>
-                </div>
-
+            <div class="configCardArrow">
+                ›
             </div>
 
         </div>
 
     </div>
 
-</section>
+</section>   
 <section id="admin" class="page"><div class="panel private"><h2>🔐 Administração privada</h2><p class="muted">Somente administradores com senha conseguem abrir esta área.</p>
 <h2>👑 Liderança</h2><div class="grid"><input class="input" id="leader" placeholder="Nome do Líder"><input class="input" id="vice1" placeholder="Nome do Vice"><input class="input" id="vice2" placeholder="Nome do Outro Vice"></div><button class="btn" onclick="saveLeadership()">Salvar liderança</button>
 <hr style="border-color:#252525;margin:20px 0"><h2>✏️ Editar tela inicial</h2><div class="grid"><input class="input" id="etitle" placeholder="Título"><input class="input" id="ewelcome" placeholder="Descrição"><input class="input" id="eggtime" placeholder="Horário GG"><input class="input" id="ehonor" placeholder="Meta honra"><input class="input" id="ewar" placeholder="Meta guerra"></div><button class="btn" onclick="saveHome()">Salvar início</button>
