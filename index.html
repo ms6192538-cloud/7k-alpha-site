@@ -2475,7 +2475,6 @@ function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)retu
 function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
 async function submitRecruit() {
-
   const nick = document.getElementById('rn')?.value.trim() || '';
   const gameId = document.getElementById('rid')?.value.trim() || '';
   const idade = document.getElementById('age')?.value || '';
@@ -2484,7 +2483,14 @@ async function submitRecruit() {
   const callWhatsapp = document.getElementById('rcall')?.value || '';
   const mensagem = document.getElementById('rmsg')?.value.trim() || '';
 
-  if (!nick || !gameId || !idade || !funcao || !disponibilidade || !callWhatsapp) {
+  if (
+    !nick ||
+    !gameId ||
+    !idade ||
+    !funcao ||
+    !disponibilidade ||
+    !callWhatsapp
+  ) {
     alert('⚠️ Preencha todos os campos obrigatórios do recrutamento.');
     return;
   }
@@ -2509,7 +2515,12 @@ async function submitRecruit() {
 
   if (error) {
     console.error('ERRO SUPABASE:', error);
-    alert('❌ Não foi possível enviar o formulário.\n\n' + error.message);
+
+    alert(
+      '❌ Não foi possível enviar o formulário.\n\n' +
+      error.message
+    );
+
     return;
   }
 
@@ -2517,7 +2528,8 @@ async function submitRecruit() {
 
   alert(
     '✅ Formulário enviado com sucesso!\n\n' +
-    'Seu recrutamento foi recebido pela 7K ALPHA. Aguarde a análise da equipe.'
+    'Seu recrutamento foi recebido pela 7K ALPHA. ' +
+    'Aguarde a análise da equipe.'
   );
 
   ['rn', 'rid', 'age', 'rav', 'rmsg'].forEach(id => {
