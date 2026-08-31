@@ -2097,6 +2097,84 @@ main{max-width:1100px;margin:auto;padding:16px}.page{display:none}.page.active{d
     }
 
   }
+  /* ===== STAFF PREMIUM ===== */
+
+.premiumStaff {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,.18);
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,.10), transparent 30%),
+        radial-gradient(circle at 80% 50%, rgba(180,180,180,.08), transparent 35%),
+        linear-gradient(135deg, #090909, #202020, #080808);
+    box-shadow:
+        0 0 25px rgba(255,255,255,.08),
+        inset 0 0 25px rgba(255,255,255,.04);
+}
+
+.staffContent {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.premiumStaff h2 {
+    margin: 0;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.premiumStaff p {
+    margin-top: 6px;
+    color: #aaa;
+}
+
+.staffIcon {
+    font-size: 34px;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,.35));
+}
+
+/* brilho metálico passando */
+.metalShine {
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 45%;
+    height: 200%;
+    transform: rotate(25deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.75),
+        rgba(255,255,255,.08),
+        transparent
+    );
+    filter: blur(4px);
+    animation: metalPass 4s linear infinite;
+    z-index: 1;
+}
+
+@keyframes metalPass {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 160%;
+    }
+}
+
+.premiumStaff:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 35px rgba(255,255,255,.14),
+        inset 0 0 30px rgba(255,255,255,.06);
+}
 </style>
 </head>
   <script>
