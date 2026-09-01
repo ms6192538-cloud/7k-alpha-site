@@ -5044,12 +5044,20 @@ function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);s
 async function submitRecruit() {
   const nick = document.getElementById('rn')?.value.trim() || '';
   const gameId = document.getElementById('rid')?.value.trim() || '';
-  const idade = document.getElementById('age')?.value || '';
-  const funcao = document.getElementById('role')?.value || '';
-  const disponibilidade = document.getElementById('rav')?.value.trim() || '';
-  const callWhatsapp = document.getElementById('rcall')?.value || '';
-  const mensagem = document.getElementById('rmsg')?.value.trim() || '';
+  const idade =
+  document.getElementById('age')?.value?.trim() || '';
 
+const funcao =
+  document.getElementById('role')?.value || '';
+
+const disponibilidade =
+  document.getElementById('rav')?.value?.trim() || '';
+
+const callWhatsapp =
+  document.getElementById('rcall')?.value || '';
+
+const mensagem =
+  document.getElementById('rmsg')?.value?.trim() || '';
   if (
     !nick ||
     !gameId ||
