@@ -5312,9 +5312,22 @@ const recruitChannel = supabaseClient
       table: 'recruitments'
     },
     (payload) => {
-      console.log('NOVO RECRUTAMENTO:', payload.new);
 
-      mostrarNotificacaoRecrutamento(payload.new);
+      console.log(
+        '🔔 NOVO RECRUTAMENTO RECEBIDO:',
+        payload.new
+      );
+
+      if (loggedRole) {
+
+        toast(
+          '🔔 Novo recrutamento recebido!'
+        );
+
+        carregarRecrutamentos();
+
+      }
+
     }
   )
   .subscribe();
