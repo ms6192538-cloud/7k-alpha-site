@@ -5137,6 +5137,118 @@ async function submitRecruit() {
     call.selectedIndex = 0;
   }
 }
+    async function carregarRecrutamentos() {
+
+  if (!loggedRole) {
+    return;
+  }
+
+  const container = document.getElementById('leads');
+
+  if (!container) {
+    console.error('Elemento #leads não encontrado.');
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="candidate">
+      ⏳ Carregando recrutamentos...
+    </div>
+  `;
+
+  const { data, error } = await supabaseClient
+    .from('recruitments')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+
+    console.error('ERRO AO BUSCAR RECRUTAMENTOS:', error);
+
+    container.innerHTML = `
+      <div class="candidate">
+        ❌ Não foi possível carregar os recrutamentos.
+        <br><br>
+        <small>${error.message}</small>
+      </div>
+    `;
+
+    return;
+  }
+
+  if (!data || data.length === 0) {
+
+    container.innerHTML = `
+      <div class="candidate">
+        📭 Nenhum recrutamento recebido ainda.
+      </div>
+    `;
+
+    return;
+  }
+
+  container.innerHTML = data.map(recrutamento => {
+
+    const call = recrutamento.has_call ? 'Sim' : 'Não';
+    const whatsapp = recrutamento.has_whatsapp ? 'Sim' : 'Não';
+
+    const status =
+      recrutamento.status === 'approved'
+        ? '✅ APROVADO'
+        : recrutamento.status === 'rejected'
+        ? '❌ RECUSADO'
+        : '🟡 PENDENTE';
+
+    return `
+      <div class="candidate">
+
+        <b>🔔 ${recrutamento.name || 'Sem nome'}</b>
+
+        <br><br>
+
+        🎮 <b>ID:</b>
+        ${recrutamento.game_id || 'Não informado'}
+
+        <br>
+
+        🎂 <b>Idade:</b>
+        ${recrutamento.age || 'Não informado'}
+
+        <br>
+
+        🎯 <b>Função:</b>
+        ${recrutamento.role || 'Não informado'}
+
+        <br>
+
+        🕐 <b>Disponibilidade:</b>
+        ${recrutamento.availability || 'Não informado'}
+
+        <br>
+
+        🎙️ <b>Call:</b>
+        ${call}
+
+        <br>
+
+        📱 <b>WhatsApp:</b>
+        ${whatsapp}
+
+        <br><br>
+
+        🖊️ <b>Observação:</b>
+        ${recrutamento.message || 'Sem observação'}
+
+        <br><br>
+
+        📌 <b>Status:</b>
+        ${status}
+
+      </div>
+    `;
+
+  }).join('');
+} 
 const recruitChannel = supabaseClient
   .channel('novos-recrutamentos')
   .on(
