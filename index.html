@@ -5099,7 +5099,7 @@ async function submitRecruit() {
   const nick = document.getElementById('rn')?.value.trim() || '';
   const gameId = document.getElementById('rid')?.value.trim() || '';
   const idade = document.getElementById('rage')?.value || '';
-  const funcao = document.getElementById('rrole')?.value || '';
+const funcao = document.getElementById('rrole')?.value || '';
   const disponibilidade = document.getElementById('rav')?.value.trim() || '';
   const callWhatsapp = document.getElementById('rcall')?.value || '';
   const mensagem = document.getElementById('rmsg')?.value.trim() || '';
@@ -5162,13 +5162,7 @@ async function submitRecruit() {
   );
 
   // Limpar formulário
-  const campos = [
-    'rn',
-    'rid',
-    'rage',
-    'rav',
-    'rmsg'
-  ];
+  const campos = ['rn', 'rid', 'rage', 'rav', 'rmsg']
 
   campos.forEach(id => {
     const elemento = document.getElementById(id);
