@@ -5042,22 +5042,15 @@ function addNotice(){if(!guard())return;let t=noticeText.value.trim();if(!t)retu
 function editNotice(i){let t=prompt('Editar aviso/regra:',d.notices[i].text);if(t!==null){d.notices[i].text=t;save()}}
 function delNotice(i){if(confirm('Excluir este aviso?')){d.notices.splice(i,1);save()}}
 async function submitRecruit() {
+
   const nick = document.getElementById('rn')?.value.trim() || '';
   const gameId = document.getElementById('rid')?.value.trim() || '';
-  const idade =
-  document.getElementById('age')?.value?.trim() || '';
+  const idade = document.getElementById('rage')?.value || '';
+  const funcao = document.getElementById('rrole')?.value || '';
+  const disponibilidade = document.getElementById('rav')?.value.trim() || '';
+  const callWhatsapp = document.getElementById('rcall')?.value || '';
+  const mensagem = document.getElementById('rmsg')?.value.trim() || '';
 
-const funcao =
-  document.getElementById('role')?.value || '';
-
-const disponibilidade =
-  document.getElementById('rav')?.value?.trim() || '';
-
-const callWhatsapp =
-  document.getElementById('rcall')?.value || '';
-
-const mensagem =
-  document.getElementById('rmsg')?.value?.trim() || '';
   if (
     !nick ||
     !gameId ||
@@ -5070,6 +5063,13 @@ const mensagem =
     return;
   }
 
+  const idadeNumero = Number(idade);
+
+  if (!Number.isInteger(idadeNumero) || idadeNumero <= 0) {
+    alert('⚠️ Informe uma idade válida.');
+    return;
+  }
+
   const possuiCall = callWhatsapp === 'Sim';
   const possuiWhatsapp = callWhatsapp === 'Sim';
 
@@ -5078,7 +5078,7 @@ const mensagem =
     .insert([{
       name: nick,
       game_id: gameId,
-      age: Number(idade),
+      age: idadeNumero,
       role: funcao,
       availability: disponibilidade,
       has_call: possuiCall,
@@ -5089,34 +5089,53 @@ const mensagem =
     .select();
 
   if (error) {
-    console.error('ERRO SUPABASE:', error);
+
+    console.error('ERRO AO ENVIAR RECRUTAMENTO:', error);
 
     alert(
-      '❌ Não foi possível enviar o formulário.\n\n' +
+      '❌ Não foi possível enviar o recrutamento.\n\n' +
       error.message
     );
 
     return;
   }
 
-  console.log('RECRUTAMENTO ENVIADO:', data);
+  console.log('✅ RECRUTAMENTO ENVIADO:', data);
 
   alert(
-    '✅ Formulário enviado com sucesso!\n\n' +
-    'Seu recrutamento foi recebido pela 7K ALPHA. ' +
+    '✅ Recrutamento enviado com sucesso!\n\n' +
+    'Seu formulário foi recebido pela 7K ALPHA.\n' +
     'Aguarde a análise da equipe.'
   );
 
-  ['rn', 'rid', 'age', 'rav', 'rmsg'].forEach(id => {
+  // Limpar formulário
+  const campos = [
+    'rn',
+    'rid',
+    'rage',
+    'rav',
+    'rmsg'
+  ];
+
+  campos.forEach(id => {
     const elemento = document.getElementById(id);
-    if (elemento) elemento.value = '';
+
+    if (elemento) {
+      elemento.value = '';
+    }
   });
 
-  const role = document.getElementById('role');
-  if (role) role.selectedIndex = 0;
+  const role = document.getElementById('rrole');
+
+  if (role) {
+    role.selectedIndex = 0;
+  }
 
   const call = document.getElementById('rcall');
-  if (call) call.selectedIndex = 0;
+
+  if (call) {
+    call.selectedIndex = 0;
+  }
 }
 const recruitChannel = supabaseClient
   .channel('novos-recrutamentos')
