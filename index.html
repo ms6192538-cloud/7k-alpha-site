@@ -4975,7 +4975,23 @@ border-radius: 10px;
 <hr style="border-color:#252525;margin:20px 0"><h2>✏️ Editar tela inicial</h2><div class="grid"><input class="input" id="etitle" placeholder="Título"><input class="input" id="ewelcome" placeholder="Descrição"><input class="input" id="eggtime" placeholder="Horário GG"><input class="input" id="ehonor" placeholder="Meta honra"><input class="input" id="ewar" placeholder="Meta guerra"></div><button class="btn" onclick="saveHome()">Salvar início</button>
 <hr style="border-color:#252525;margin:20px 0"><h2>👥 Gerenciar membros</h2><p class="muted">Você pode adicionar, editar ou excluir jogadores.</p><div class="grid"><input class="input" id="mn" placeholder="Nick"><select class="input" id="mr"><option>Rush</option><option>Full Gás</option><option>Curandeiro</option></select><input class="input" id="mh" type="number" placeholder="Honra"><input class="input" id="mg" type="number" placeholder="Pontos GG"></div><button class="btn" onclick="addMember()">➕ Adicionar membro</button><div id="manageMembers"></div>
 <hr style="border-color:#252525;margin:20px 0"><h2>📢 Editar avisos e regras</h2><textarea class="input" id="noticeText" rows="4" placeholder="Escreva o aviso ou regra..."></textarea><button class="btn" onclick="addNotice()">Publicar</button><div id="adminNotices"></div>
-<hr style="border-color:#252525;margin:20px 0"><h2>🔔 Recrutamentos recebidos</h2><div id="leads"></div>
+<hr style="border-color:#252525;margin:20px 0"><h2>🔔 Recrutamentos recebidos</h2>
+
+<p class="muted">
+  Formulários enviados pelos jogadores através do recrutamento oficial.
+</p>
+
+<button
+  class="btn"
+  type="button"
+  onclick="carregarRecrutamentos()"
+>
+  🔄 Atualizar recrutamentos
+</button>
+
+<br><br>
+
+<div id="leads"></div>
 <hr style="border-color:#252525;margin:20px 0"><h2>🔑 Senhas dos administradores</h2><p class="muted">Defina uma senha para cada cargo. Troque as senhas padrão assim que instalar.</p><div class="grid"><input class="input" id="pLeader" type="password" placeholder="Senha Líder"><input class="input" id="pVice1" type="password" placeholder="Senha Vice"><input class="input" id="pVice2" type="password" placeholder="Senha Outro Vice"></div><button class="btn" onclick="savePasswords()">Salvar senhas</button>
 <br><br><button class="btn gray" onclick="logout()">Sair</button></div></section>
 </main><div class="toast" id="toast"></div>
