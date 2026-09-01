@@ -3138,6 +3138,785 @@ background-position: 300%;
 .recruitSubmit:active {
 transform: scale(.97);
 }
+    /* =========================================
+   WHATSAPP 7K ALPHA
+   ========================================= */
+
+.whatsappPage {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 25px 15px 45px;
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   BANNER
+   ========================================= */
+
+.whatsappBanner {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 280px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(37, 211, 102, .22),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #07100c,
+      #0b1711,
+      #07100c
+    );
+
+  border: 1px solid rgba(37, 211, 102, .25);
+
+  box-shadow:
+    0 0 35px rgba(37, 211, 102, .08),
+    inset 0 0 50px rgba(37, 211, 102, .03);
+}
+
+
+/* brilho passando pelo banner */
+
+.whatsappBanner::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.07),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  animation: whatsappShine 5s infinite;
+}
+
+
+@keyframes whatsappShine {
+
+  0% {
+    left: -120%;
+  }
+
+  45% {
+    left: 140%;
+  }
+
+  100% {
+    left: 140%;
+  }
+
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.whatsappLogo {
+
+  position: relative;
+  z-index: 3;
+
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #25d366;
+
+  box-shadow:
+    0 0 0 8px rgba(37, 211, 102, .08),
+    0 0 35px rgba(37, 211, 102, .35);
+
+  animation: whatsappFloat 3s ease-in-out infinite;
+}
+
+
+.whatsappLogo span {
+  font-size: 42px;
+}
+
+
+@keyframes whatsappFloat {
+
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+}
+
+
+/* =========================================
+   TEXTO DO BANNER
+   ========================================= */
+
+.whatsappBannerText {
+  position: relative;
+  z-index: 4;
+
+  padding: 25px;
+}
+
+
+.whatsappMiniTitle {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: #25d366;
+}
+
+
+.whatsappBanner h1 {
+
+  margin: 0;
+
+  font-size: clamp(28px, 6vw, 48px);
+
+  line-height: 1;
+
+  font-weight: 900;
+
+  color: #fff;
+}
+
+
+.whatsappBanner h1 strong {
+
+  display: block;
+
+  color: #25d366;
+
+  text-shadow:
+    0 0 20px rgba(37, 211, 102, .25);
+}
+
+
+.whatsappBanner p {
+
+  max-width: 560px;
+
+  margin: 18px auto 0;
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   PARTÍCULAS
+   ========================================= */
+
+.whatsappParticles span {
+
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #25d366;
+
+  opacity: .5;
+
+  animation: whatsappParticles 6s linear infinite;
+}
+
+
+.whatsappParticles span:nth-child(1) {
+  left: 10%;
+  bottom: -10px;
+  animation-delay: 0s;
+}
+
+.whatsappParticles span:nth-child(2) {
+  left: 30%;
+  bottom: -10px;
+  animation-delay: 1.5s;
+}
+
+.whatsappParticles span:nth-child(3) {
+  left: 55%;
+  bottom: -10px;
+  animation-delay: 3s;
+}
+
+.whatsappParticles span:nth-child(4) {
+  left: 75%;
+  bottom: -10px;
+  animation-delay: 2s;
+}
+
+.whatsappParticles span:nth-child(5) {
+  left: 90%;
+  bottom: -10px;
+  animation-delay: 4s;
+}
+
+
+@keyframes whatsappParticles {
+
+  0% {
+    transform: translateY(0) scale(.5);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: .6;
+  }
+
+  100% {
+    transform: translateY(-300px) scale(1.5);
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================
+   CARD
+   ========================================= */
+
+.whatsappCard {
+
+  position: relative;
+
+  margin-top: 18px;
+
+  padding: 28px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.045),
+      rgba(255,255,255,.015)
+    );
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.25);
+
+  backdrop-filter: blur(12px);
+}
+
+
+.whatsappStatus {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 12px;
+
+  border-radius: 50px;
+
+  background: rgba(37,211,102,.08);
+
+  border: 1px solid rgba(37,211,102,.18);
+
+  color: #25d366;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.statusDot {
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #25d366;
+
+  box-shadow: 0 0 10px #25d366;
+
+  animation: statusPulse 1.5s infinite;
+}
+
+
+@keyframes statusPulse {
+
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .45;
+    transform: scale(.7);
+  }
+
+}
+
+
+.whatsappCard h2 {
+
+  margin: 18px 0 8px;
+
+  color: #fff;
+
+  font-size: 25px;
+}
+
+
+.whatsappDescription {
+
+  margin: 0;
+
+  color: rgba(255,255,255,.58);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   FEATURES
+   ========================================= */
+
+.whatsappFeatures {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+
+  margin: 25px 0;
+}
+
+
+.whatsappFeature {
+
+  display: flex;
+
+  gap: 12px;
+
+  padding: 16px;
+
+  border-radius: 15px;
+
+  background: rgba(255,255,255,.025);
+
+  border: 1px solid rgba(255,255,255,.06);
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease;
+}
+
+
+.whatsappFeature:hover {
+
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(37,211,102,.25);
+
+  background:
+    rgba(37,211,102,.04);
+}
+
+
+.featureIcon {
+
+  min-width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    rgba(37,211,102,.08);
+
+  font-size: 18px;
+}
+
+
+.whatsappFeature strong {
+
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #fff;
+
+  font-size: 12px;
+}
+
+
+.whatsappFeature span {
+
+  display: block;
+
+  color: rgba(255,255,255,.45);
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   BOTÃO
+   ========================================= */
+
+.whatsappJoinButton {
+
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100%;
+
+  min-height: 72px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 14px 18px;
+
+  border: 1px solid rgba(37,211,102,.25);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #25d366,
+      #128c4a
+    );
+
+  color: white;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+
+.whatsappJoinButton:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(37,211,102,.22);
+}
+
+
+.whatsappJoinButton:active {
+
+  transform: scale(.98);
+}
+
+
+.joinIcon {
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(0,0,0,.13);
+
+  font-size: 21px;
+}
+
+
+.joinText {
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.joinText strong {
+
+  font-size: 13px;
+
+  letter-spacing: .5px;
+}
+
+
+.joinText small {
+
+  font-size: 10px;
+
+  opacity: .72;
+}
+
+
+.joinArrow {
+
+  font-size: 26px;
+
+  opacity: .8;
+
+  transition: transform .2s ease;
+}
+
+
+.whatsappJoinButton:hover .joinArrow {
+
+  transform: translateX(5px);
+}
+
+
+/* brilho do botão */
+
+.whatsappJoinButton::after {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 60%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.18),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  animation: buttonShine 4s infinite;
+}
+
+
+@keyframes buttonShine {
+
+  0% {
+    left: -100%;
+  }
+
+  35% {
+    left: 140%;
+  }
+
+  100% {
+    left: 140%;
+  }
+
+}
+
+
+/* =========================================
+   AVISO
+   ========================================= */
+
+.whatsappWarning {
+
+  margin-top: 15px;
+
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.025);
+
+  color: rgba(255,255,255,.42);
+
+  font-size: 10px;
+
+  text-align: center;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.whatsappFooter {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 25px;
+
+  color: rgba(255,255,255,.3);
+
+  font-size: 10px;
+}
+
+
+.whatsappFooter > span {
+
+  color: #25d366;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.footerLine {
+
+  width: 35px;
+
+  height: 1px;
+
+  background: rgba(255,255,255,.12);
+}
+
+
+.whatsappFooter small {
+
+  font-size: 9px;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+  .whatsappPage {
+    padding: 15px 10px 35px;
+  }
+
+  .whatsappBanner {
+    min-height: 350px;
+  }
+
+  .whatsappBannerText {
+    padding: 20px 15px;
+  }
+
+  .whatsappLogo {
+    width: 75px;
+    height: 75px;
+  }
+
+  .whatsappLogo span {
+    font-size: 34px;
+  }
+
+  .whatsappBanner h1 {
+    font-size: 31px;
+  }
+
+  .whatsappBanner p {
+    font-size: 12px;
+  }
+
+  .whatsappCard {
+    padding: 20px 16px;
+  }
+
+  .whatsappFeatures {
+    grid-template-columns: 1fr;
+  }
+
+  .whatsappFeature {
+    padding: 13px;
+  }
+
+  .whatsappFooter {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .footerLine {
+    display: none;
+  }
+
+} 
 }style>
 
 </head>  
