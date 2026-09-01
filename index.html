@@ -4982,6 +4982,35 @@ border-radius: 10px;
 
 <script>
 const K='7k_alpha_v4';
+     /* =========================================
+   WHATSAPP DA 7K ALPHA
+   ========================================= */
+
+function abrirWhatsAppGuilda() {
+
+  const whatsappLink =
+    "https://chat.whatsapp.com/EzlOuW6ad0V77AxGvEGz70?s=cl&p=a&mlu=4";
+
+  // Pequena animação visual antes de abrir
+  const button = document.querySelector(".whatsappJoinButton");
+
+  if (button) {
+
+    button.style.transform = "scale(.97)";
+
+    setTimeout(() => {
+      button.style.transform = "";
+    }, 150);
+
+  }
+
+  // Abre o grupo oficial do WhatsApp
+  window.open(
+    whatsappLink,
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
 let d=JSON.parse(localStorage.getItem(K))||null;
 if(!d)d={home:{title:'7K ALPHA',welcome:'Central oficial para organização da guilda, recrutamento, GG e Guerra de Guilda.',gg:'19h',honor:'3K',war:'200+'},leadership:{leader:'Líder',vice1:'Vice',vice2:'Outro Vice'},members:[],notices:[{text:'Respeito e educação são obrigatórios dentro da guilda.'},{text:'GG é obrigatório para jogadores convocados. Mantenha compromisso com a equipe.'}],leads:[],passwords:{leader:'7KALPHAADM',vice1:'7KALPHAVICE',vice2:'7KALPHAVICE2'}};
 let loggedRole=null;
